@@ -1,0 +1,16 @@
+.combo-box:editable > .text-field {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.combo-box .arrow-button {
+    -fx-background-color: lightgray;
+    -fx-border-color: transparent;
+}
+
+.combo-box {
+    -fx-background-color: lightgray;
+    -fx-border-color: transparent;
+    -fx-border-radius: 0;
+    -fx-background-radius: 0;
+}
