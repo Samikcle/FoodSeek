@@ -1,6 +1,8 @@
 .combo-box:editable > .text-field {
     -fx-background-color: transparent;
     -fx-border-color: transparent;
+    -fx-text-fill: black;
+    -fx-prompt-text-fill: black;
 }
 
 .combo-box .arrow-button {
