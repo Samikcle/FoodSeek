@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="110.0" prefWidth="297.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fx:id="LogoItem" fitHeight="75.0" fitWidth="75.0" layoutX="14.0" layoutY="15.0" pickOnBounds="true">
+         <image>
+            <Image url="@../images/placeholder.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="NameItem" layoutX="99.0" layoutY="15.0" style="-fx-font-weight: bold;" text="Foodbank Name">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="LocationItem" layoutX="99.0" layoutY="41.0" text="Location">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="OHItem" layoutX="99.0" layoutY="66.0" text="Operating Hour">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="248.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/next.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

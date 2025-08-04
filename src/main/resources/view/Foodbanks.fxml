@@ -9,7 +9,9 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
@@ -18,27 +20,30 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <ComboBox editable="true" layoutX="-8.0" layoutY="2.0" prefHeight="50.0" prefWidth="308.0" promptText="Select Location" stylesheets="@../style/ComboBox.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                  <ScrollPane hbarPolicy="NEVER" layoutX="14.0" layoutY="386.0" prefHeight="200.0" prefWidth="200.0" style="-fx-padding: 0; -fx-vbar-policy: AS_NEEDED; -fx-hbar-policy: NEVER;" vbarPolicy="NEVER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0" />
+                  <ComboBox fx:id="LocationSelector" editable="true" layoutX="-8.0" layoutY="2.0" prefHeight="50.0" promptText="Select Location" stylesheets="@../style/ComboBox.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <ScrollPane fitToWidth="true" hbarPolicy="NEVER" hmax="0.0" layoutX="14.0" layoutY="386.0" style="-fx-padding: 0; -fx-vbar-policy: AS_NEEDED; -fx-hbar-policy: NEVER;" vbarPolicy="NEVER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+                     <content>
+                        <VBox fx:id="ItemContainer" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" />
+                     </content></ScrollPane>
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <ScrollPane hbarPolicy="NEVER" hmax="0.0" layoutX="181.0" layoutY="48.0" prefHeight="600.0" prefWidth="697.0" style="-fx-border-width: 0;" vbarPolicy="NEVER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <ScrollPane fitToWidth="true" hbarPolicy="NEVER" hmax="0.0" layoutX="181.0" layoutY="48.0" prefHeight="600.0" prefWidth="697.0" style="-fx-border-width: 0;" vbarPolicy="NEVER" vvalue="1.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <content>
-                        <Pane prefHeight="898.0" prefWidth="696.0">
+                        <Pane prefWidth="697.0" style="-fx-border-width: 0;">
                            <children>
-                              <ImageView fitHeight="125.0" fitWidth="697.0" pickOnBounds="true">
+                              <ImageView fx:id="BackgroundImage" fitHeight="125.0" fitWidth="697.0" pickOnBounds="true">
                                  <image>
                                     <Image url="@../images/placeholder.png" />
                                  </image>
                               </ImageView>
-                              <ImageView fitHeight="150.0" fitWidth="150.0" layoutX="22.0" layoutY="50.0" pickOnBounds="true">
+                              <ImageView fx:id="Logo" fitHeight="150.0" fitWidth="150.0" layoutX="22.0" layoutY="50.0" pickOnBounds="true">
                                  <image>
                                     <Image url="@../images/placeholder.png" />
                                  </image>
                               </ImageView>
-                              <Label layoutX="185.0" layoutY="141.0" prefHeight="36.0" prefWidth="497.0" style="-fx-font-weight: bold;" text="Foodbank Name">
+                              <Label fx:id="Name" layoutX="185.0" layoutY="141.0" prefHeight="36.0" prefWidth="497.0" style="-fx-font-weight: bold;" text="Foodbank Name">
                                  <font>
                                     <Font size="30.0" />
                                  </font>
@@ -58,17 +63,17 @@
                                     <Image url="@../images/time.png" />
                                  </image>
                               </ImageView>
-                              <Label alignment="TOP_LEFT" layoutX="83.0" layoutY="220.0" prefHeight="66.0" prefWidth="420.0" text="Address " wrapText="true">
+                              <Label fx:id="Address" alignment="TOP_LEFT" layoutX="83.0" layoutY="220.0" prefHeight="66.0" prefWidth="420.0" text="Address " wrapText="true">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
                               </Label>
-                              <Label alignment="TOP_LEFT" layoutX="83.0" layoutY="294.0" prefHeight="37.0" prefWidth="361.0" text="Phone">
+                              <Label fx:id="Phone" alignment="TOP_LEFT" layoutX="83.0" layoutY="294.0" prefHeight="37.0" prefWidth="361.0" text="Phone">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
                               </Label>
-                              <Label alignment="TOP_LEFT" layoutX="83.0" layoutY="343.0" prefHeight="37.0" prefWidth="361.0" text="Operating Hour">
+                              <Label fx:id="OperatingHour" alignment="TOP_LEFT" layoutX="83.0" layoutY="343.0" prefHeight="37.0" prefWidth="361.0" text="Operating Hour">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
@@ -78,27 +83,47 @@
                                     <Font size="22.0" />
                                  </font>
                               </Label>
-                              <Label alignment="TOP_LEFT" layoutX="35.0" layoutY="447.0" prefHeight="215.0" prefWidth="595.0" text="Unavailable " wrapText="true">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </Label>
                               <Button layoutX="517.0" layoutY="403.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="135.0" style="-fx-background-radius: 0; -fx-background-color: lightgray; -fx-border-width: 3; -fx-border-color: black;" text="Plan Pick Up">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Button>
-                              <Label layoutX="35.0" layoutY="673.0" prefHeight="32.0" prefWidth="291.0" style="-fx-font-weight: bold;" text="Additional Information:">
-                                 <font>
-                                    <Font size="22.0" />
-                                 </font>
-                              </Label>
-                              <Label alignment="TOP_LEFT" layoutX="35.0" layoutY="720.0" prefHeight="120.0" prefWidth="595.0" text="Unavailable " wrapText="true">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </Label>
-                              <Button layoutX="274.0" layoutY="857.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-underline: true;" text="Claim this business" />
+                              <VBox layoutY="441.0" prefWidth="697.0">
+                                 <children>
+                                    <Label fx:id="FoodAvailable" alignment="TOP_LEFT" prefWidth="620.0" text="Unavailable " wrapText="true">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets left="35.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label prefHeight="32.0" prefWidth="291.0" style="-fx-font-weight: bold;" text="Additional Information:">
+                                       <font>
+                                          <Font size="22.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets left="35.0" top="10.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label fx:id="AdditionalInfo" alignment="TOP_LEFT" prefWidth="620.0" text="Unavailable " wrapText="true">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets left="35.0" top="10.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <HBox alignment="CENTER">
+                                       <children>
+                                          <Button mnemonicParsing="false" style="-fx-background-color: transparent; -fx-underline: true;" text="Claim this business" />
+                                       </children>
+                                       <padding>
+                                          <Insets top="10.0" />
+                                       </padding>
+                                    </HBox>
+                                 </children>
+                              </VBox>
                            </children>
                         </Pane>
                      </content>
