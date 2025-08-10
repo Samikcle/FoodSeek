@@ -6,6 +6,8 @@ import javafx.scene.image.*
 import javafx.scene.layout.VBox
 import model.Foodbank
 import javafx.scene.Node
+import javafx.collections.FXCollections
+import scala.jdk.CollectionConverters._
 
 class FoodbanksController {
 
@@ -50,18 +52,37 @@ class FoodbanksController {
   }
 
   private var foodbanks: List[Foodbank] = List()
+  private var cities: List[String] = List()
 
-  def setFoodbanks(list: List[Foodbank]): Unit = {
+  def setFoodbanks(list: List[Foodbank], citiesList: List[String]): Unit = {
     foodbanks = list
-    loadListItems()
+    cities = citiesList
+    setupCityComboBox()
+    loadListItems(foodbanks)
     if (foodbanks.nonEmpty) {
       displayFoodbank(foodbanks.head)
     }
   }
 
-  private def loadListItems(): Unit = {
+  private def setupCityComboBox(): Unit = {
+    LocationSelector.setItems(FXCollections.observableArrayList(cities.asJava))
+    LocationSelector.setEditable(false) // ⬅ Make it non-editable
+
+    // Filtering when a city is selected
+    LocationSelector.setOnAction(_ => {
+      val selectedCity = Option(LocationSelector.getValue).getOrElse("")
+      if (selectedCity.trim.isEmpty) {
+        loadListItems(foodbanks) // Show all
+      } else {
+        val filtered = foodbanks.filter(_.city.equalsIgnoreCase(selectedCity.trim))
+        loadListItems(filtered)
+      }
+    })
+  }
+
+  private def loadListItems(list: List[Foodbank]): Unit = {
     ItemContainer.getChildren.clear()
-    foodbanks.foreach { fb =>
+    list.foreach { fb =>
       val loader = new FXMLLoader(getClass.getResource("/view/ListItem.fxml"))
       val node: Node = loader.load()
       val controller = loader.getController[ListItemController]

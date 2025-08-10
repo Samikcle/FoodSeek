@@ -86,12 +86,14 @@ object MyApp extends JFXApp3:
     )
   )
 
+  val citiesList = List("Subang", "KL", "RAA", "BB")
+
   override def start(): Unit =
 
     val loader = new FXMLLoader(getClass.getResource("/view/Foodbanks.fxml"))
     val root = loader.load[javafx.scene.Parent]()
     val controller = loader.getController[FoodbanksController]
-    controller.setFoodbanks(foodbanks)
+    controller.setFoodbanks(foodbanks, citiesList)
 
     stage = new PrimaryStage {
       title = "Foodbanks"
