@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FoodbanksController">
    <children>
       <SplitPane dividerPositions="0.3" layoutX="120.0" layoutY="73.0" prefHeight="600.0" prefWidth="1000.0" style="-fx-padding: 0; -fx-background-insets: 0, 0 1 0 1;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
@@ -116,7 +116,7 @@
                                     </Label>
                                     <HBox alignment="CENTER">
                                        <children>
-                                          <Button mnemonicParsing="false" style="-fx-background-color: transparent; -fx-underline: true;" text="Claim this business" />
+                                          <Button fx:id="Claimable" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-underline: true;" text="Claim this business" />
                                        </children>
                                        <padding>
                                           <Insets top="10.0" />
