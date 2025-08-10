@@ -5,6 +5,7 @@ case class Foodbank(
                      backgroundImage: String,
                      name: String,
                      address: String,
+                     city: String,
                      phone: String,
                      operatingHour: String,
                      foodAvailable: String,

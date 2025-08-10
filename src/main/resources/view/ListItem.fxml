@@ -13,17 +13,17 @@
             <Image url="@../images/placeholder.png" />
          </image>
       </ImageView>
-      <Label fx:id="NameItem" layoutX="99.0" layoutY="15.0" style="-fx-font-weight: bold;" text="Foodbank Name">
+      <Label fx:id="NameItem" focusTraversable="false" layoutX="99.0" layoutY="15.0" style="-fx-font-weight: bold; -fx-font-size: 15px;" text="Foodbank Name">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="CityItem" focusTraversable="false" layoutX="99.0" layoutY="41.0" text="City">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label fx:id="LocationItem" layoutX="99.0" layoutY="41.0" text="Location">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
-      <Label fx:id="OHItem" layoutX="99.0" layoutY="66.0" text="Operating Hour">
+      <Label fx:id="OHItem" focusTraversable="false" layoutX="99.0" layoutY="66.0" text="Operating Hour">
          <font>
             <Font size="15.0" />
          </font>

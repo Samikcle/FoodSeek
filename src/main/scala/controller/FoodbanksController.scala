@@ -1,9 +1,11 @@
 package controller
 
-import javafx.fxml.FXML
+import javafx.fxml.{FXML, FXMLLoader}
 import javafx.scene.control.*
-import javafx.scene.image.ImageView
+import javafx.scene.image.*
 import javafx.scene.layout.VBox
+import model.Foodbank
+import javafx.scene.Node
 
 class FoodbanksController {
 
@@ -23,6 +25,9 @@ class FoodbanksController {
   private var Address: Label = _
 
   @FXML
+  private var City: Label = _
+
+  @FXML
   private var FoodAvailable: Label = _
 
   @FXML
@@ -37,11 +42,58 @@ class FoodbanksController {
   @FXML
   private var ItemContainer: VBox = _
 
-  @FXML 
+  @FXML
   private var Claimable: Button = _
 
   @FXML
   def initialize(): Unit = {
-    // This will run after the FXML is loaded
+  }
+
+  private var foodbanks: List[Foodbank] = List()
+
+  def setFoodbanks(list: List[Foodbank]): Unit = {
+    foodbanks = list
+    loadListItems()
+    if (foodbanks.nonEmpty) {
+      displayFoodbank(foodbanks.head)
+    }
+  }
+
+  private def loadListItems(): Unit = {
+    ItemContainer.getChildren.clear()
+    foodbanks.foreach { fb =>
+      val loader = new FXMLLoader(getClass.getResource("/view/ListItem.fxml"))
+      val node: Node = loader.load()
+      val controller = loader.getController[ListItemController]
+
+      controller.setLogo(loadImage(fb.logo))
+      controller.setName(fb.name)
+      controller.setCity(fb.city)
+      controller.setOperatingHour(fb.operatingHour)
+
+      node.setOnMouseClicked(_ => displayFoodbank(fb))
+
+      ItemContainer.getChildren.add(node)
+    }
+  }
+
+  private def displayFoodbank(fb: Foodbank): Unit = {
+    Logo.setImage(loadImage(fb.logo))
+    BackgroundImage.setImage(loadImage(fb.backgroundImage))
+    Name.setText(fb.name)
+    Address.setText(fb.address)
+    City.setText(fb.city)
+    Phone.setText(fb.phone)
+    OperatingHour.setText(fb.operatingHour)
+    FoodAvailable.setText(fb.foodAvailable)
+    AdditionalInfo.setText(fb.additionalInformation)
+    Claimable.setVisible(!fb.claimed)
+    Claimable.setManaged(!fb.claimed)
+  }
+
+  private def loadImage(fileName: String): Image = {
+    val stream = getClass.getResourceAsStream(s"/images/$fileName")
+    new Image(stream)
   }
 }
+

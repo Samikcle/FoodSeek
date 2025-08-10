@@ -16,3 +16,10 @@
     -fx-border-radius: 0;
     -fx-background-radius: 0;
 }
+
+:focused {
+    -fx-effect: inherit;
+    -fx-background-color: inherit;
+    -fx-text-fill: inherit;
+    -fx-font-weight: inherit;
+}

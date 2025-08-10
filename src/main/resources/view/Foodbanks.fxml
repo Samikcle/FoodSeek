@@ -16,12 +16,12 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FoodbanksController">
    <children>
-      <SplitPane dividerPositions="0.3" layoutX="120.0" layoutY="73.0" prefHeight="600.0" prefWidth="1000.0" style="-fx-padding: 0; -fx-background-insets: 0, 0 1 0 1;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <SplitPane dividerPositions="0.3" focusTraversable="false" layoutX="120.0" layoutY="73.0" prefHeight="600.0" prefWidth="1000.0" style="-fx-padding: 0; -fx-background-insets: 0, 0 1 0 1;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <ComboBox fx:id="LocationSelector" editable="true" layoutX="-8.0" layoutY="2.0" prefHeight="50.0" promptText="Select Location" stylesheets="@../style/ComboBox.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                  <ScrollPane fitToWidth="true" hbarPolicy="NEVER" hmax="0.0" layoutX="14.0" layoutY="386.0" style="-fx-padding: 0; -fx-vbar-policy: AS_NEEDED; -fx-hbar-policy: NEVER;" vbarPolicy="NEVER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+                  <ComboBox fx:id="LocationSelector" editable="true" focusTraversable="false" layoutX="-8.0" layoutY="2.0" prefHeight="50.0" promptText="Select Location" stylesheets="@../style/ComboBox.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <ScrollPane fitToWidth="true" focusTraversable="false" hbarPolicy="NEVER" hmax="0.0" layoutX="14.0" layoutY="386.0" style="-fx-padding: 0;" vbarPolicy="NEVER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
                      <content>
                         <VBox fx:id="ItemContainer" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" />
                      </content></ScrollPane>
@@ -29,7 +29,7 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <ScrollPane fitToWidth="true" hbarPolicy="NEVER" hmax="0.0" layoutX="181.0" layoutY="48.0" prefHeight="600.0" prefWidth="697.0" style="-fx-border-width: 0;" vbarPolicy="NEVER" vvalue="1.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <ScrollPane fitToWidth="true" focusTraversable="false" hbarPolicy="NEVER" hmax="0.0" layoutX="181.0" layoutY="48.0" prefHeight="600.0" prefWidth="697.0" style="-fx-border-width: 0;" vbarPolicy="NEVER" vvalue="1.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <content>
                         <Pane prefWidth="697.0" style="-fx-border-width: 0;">
                            <children>
@@ -43,9 +43,9 @@
                                     <Image url="@../images/placeholder.png" />
                                  </image>
                               </ImageView>
-                              <Label fx:id="Name" layoutX="185.0" layoutY="141.0" prefHeight="36.0" prefWidth="497.0" style="-fx-font-weight: bold;" text="Foodbank Name">
+                              <Label fx:id="Name" focusTraversable="false" layoutX="185.0" layoutY="141.0" prefHeight="36.0" prefWidth="497.0" style="-fx-font-weight: bold; -fx-font-size: 30px;" text="Foodbank Name">
                                  <font>
-                                    <Font size="30.0" />
+                                    <Font name="System Bold" size="30.0" />
                                  </font>
                               </Label>
                               <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="35.0" layoutY="217.0" pickOnBounds="true" preserveRatio="true">
@@ -63,34 +63,39 @@
                                     <Image url="@../images/time.png" />
                                  </image>
                               </ImageView>
-                              <Label fx:id="Address" alignment="TOP_LEFT" layoutX="83.0" layoutY="220.0" prefHeight="66.0" prefWidth="420.0" text="Address " wrapText="true">
+                              <Label fx:id="Address" alignment="TOP_LEFT" focusTraversable="false" layoutX="83.0" layoutY="220.0" prefHeight="32.0" prefWidth="420.0" text="Address " wrapText="true">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="Phone" alignment="TOP_LEFT" layoutX="83.0" layoutY="294.0" prefHeight="37.0" prefWidth="361.0" text="Phone">
+                              <Label fx:id="City" alignment="TOP_LEFT" focusTraversable="false" layoutX="83.0" layoutY="252.0" prefHeight="32.0" prefWidth="420.0" text="City" wrapText="true">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="OperatingHour" alignment="TOP_LEFT" layoutX="83.0" layoutY="343.0" prefHeight="37.0" prefWidth="361.0" text="Operating Hour">
+                              <Label fx:id="Phone" alignment="TOP_LEFT" focusTraversable="false" layoutX="83.0" layoutY="294.0" prefHeight="37.0" prefWidth="361.0" text="Phone">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="35.0" layoutY="402.0" prefHeight="32.0" prefWidth="291.0" style="-fx-font-weight: bold;" text="Food Available for Pick Up:">
+                              <Label fx:id="OperatingHour" alignment="TOP_LEFT" focusTraversable="false" layoutX="83.0" layoutY="343.0" prefHeight="37.0" prefWidth="361.0" text="Operating Hour">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label focusTraversable="false" layoutX="35.0" layoutY="402.0" prefHeight="32.0" prefWidth="291.0" style="-fx-font-weight: bold; -fx-font-size: 22px;" text="Food Available for Pick Up:">
                                  <font>
                                     <Font size="22.0" />
                                  </font>
                               </Label>
-                              <Button layoutX="517.0" layoutY="403.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="135.0" style="-fx-background-radius: 0; -fx-background-color: lightgray; -fx-border-width: 3; -fx-border-color: black;" text="Plan Pick Up">
+                              <Button focusTraversable="false" layoutX="517.0" layoutY="403.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="135.0" style="-fx-background-radius: 0; -fx-background-color: lightgray; -fx-border-width: 3; -fx-border-color: black;" text="Plan Pick Up">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Button>
                               <VBox layoutY="441.0" prefWidth="697.0">
                                  <children>
-                                    <Label fx:id="FoodAvailable" alignment="TOP_LEFT" prefWidth="620.0" text="Unavailable " wrapText="true">
+                                    <Label fx:id="FoodAvailable" alignment="TOP_LEFT" focusTraversable="false" prefWidth="620.0" text="Unavailable " wrapText="true">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
@@ -98,7 +103,7 @@
                                           <Insets left="35.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <Label prefHeight="32.0" prefWidth="291.0" style="-fx-font-weight: bold;" text="Additional Information:">
+                                    <Label focusTraversable="false" prefHeight="32.0" prefWidth="291.0" style="-fx-font-weight: bold; -fx-font-size: 22px;" text="Additional Information:">
                                        <font>
                                           <Font size="22.0" />
                                        </font>
@@ -106,7 +111,7 @@
                                           <Insets left="35.0" top="10.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <Label fx:id="AdditionalInfo" alignment="TOP_LEFT" prefWidth="620.0" text="Unavailable " wrapText="true">
+                                    <Label fx:id="AdditionalInfo" alignment="TOP_LEFT" focusTraversable="false" prefWidth="620.0" text="Unavailable " wrapText="true">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
@@ -116,7 +121,7 @@
                                     </Label>
                                     <HBox alignment="CENTER">
                                        <children>
-                                          <Button fx:id="Claimable" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-underline: true;" text="Claim this business" />
+                                          <Button fx:id="Claimable" focusTraversable="false" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-underline: true;" text="Claim this business" />
                                        </children>
                                        <padding>
                                           <Insets top="10.0" />

@@ -2,7 +2,7 @@ package controller
 
 import javafx.fxml.FXML
 import javafx.scene.control.Label
-import javafx.scene.image.ImageView
+import javafx.scene.image.{Image, ImageView}
 
 class ListItemController {
 
@@ -13,13 +13,16 @@ class ListItemController {
   private var NameItem: Label = _
 
   @FXML
-  private var LocationItem: Label = _
+  private var CityItem: Label = _
 
   @FXML
   private var OHItem: Label = _
 
   @FXML
-  def initialize(): Unit = {
-    // This will run after the FXML is loaded
-  }
+  def initialize(): Unit = { }
+
+  def setLogo(image: Image): Unit = LogoItem.setImage(image)
+  def setName(name: String): Unit = NameItem.setText(name)
+  def setCity(city: String): Unit = CityItem.setText(city)
+  def setOperatingHour(hour: String): Unit = OHItem.setText(hour)
 }
