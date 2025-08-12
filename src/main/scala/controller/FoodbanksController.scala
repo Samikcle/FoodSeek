@@ -48,6 +48,9 @@ class FoodbanksController {
   private var Claimable: Button = _
 
   @FXML
+  private var PickUp: Button = _
+
+  @FXML
   def initialize(): Unit = {
   }
 
@@ -110,6 +113,8 @@ class FoodbanksController {
     AdditionalInfo.setText(fb.additionalInformation)
     Claimable.setVisible(!fb.claimed)
     Claimable.setManaged(!fb.claimed)
+    PickUp.setVisible(fb.claimed)
+    PickUp.setManaged(fb.claimed)
   }
 
   private def loadImage(fileName: String): Image = {

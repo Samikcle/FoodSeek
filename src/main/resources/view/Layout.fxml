@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox alignment="CENTER" prefHeight="100.0" style="-fx-background-color: lightgray;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../images/FoodSeekLogo.png" />
+               </image></ImageView>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="800.0">
+               <children>
+                  <Pane fx:id="FoodBankMenu" prefHeight="100.0" prefWidth="100.0">
+                     <children>
+                        <ImageView fitHeight="65.0" fitWidth="65.0" layoutX="17.0" layoutY="15.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@../images/food-bank.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="9.0" layoutY="73.0" text="Food Banks">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane fx:id="GiveawayMenu" prefHeight="100.0" prefWidth="100.0">
+                     <children>
+                        <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="25.0" layoutY="21.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@../images/food-donation.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="13.0" layoutY="73.0" text="Giveaways">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane fx:id="DiscountMenu" prefHeight="100.0" prefWidth="100.0">
+                     <children>
+                        <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="25.0" layoutY="21.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@../images/discount.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="16.0" layoutY="73.0" text="Discounts">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane fx:id="ManageMenu" prefHeight="100.0" prefWidth="100.0">
+                     <children>
+                        <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="25.0" layoutY="21.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@../images/manage.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="21.0" layoutY="73.0" text="Manage">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane fx:id="RequestMenu" prefHeight="100.0" prefWidth="100.0">
+                     <children>
+                        <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="25.0" layoutY="21.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@../images/request.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="18.0" layoutY="73.0" text="Requests">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+               </children>
+            </HBox>
+            <Pane fx:id="Profile" prefHeight="100.0" prefWidth="100.0">
+               <children>
+                  <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="25.0" layoutY="21.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@../images/profile-user.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="27.0" layoutY="73.0" text="Profile">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </HBox>
+      <Pane fx:id="Content" layoutX="44.0" layoutY="259.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0" />
+   </children>
+</AnchorPane>

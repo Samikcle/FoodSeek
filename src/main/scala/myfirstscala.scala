@@ -73,7 +73,7 @@ object MyApp extends JFXApp3:
       claimed = true
     ),
     Foodbank(
-      logo = "placeholder.png",
+      logo = "FoodSeekLogo.png",
       backgroundImage = "placeholder.png",
       name = "Foodbank2",
       address = "1 Jalan wa",
