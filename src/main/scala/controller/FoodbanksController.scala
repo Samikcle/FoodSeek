@@ -51,15 +51,15 @@ class FoodbanksController {
   @FXML
   private var PickUp: Button = _
 
+  private var foodbanks: List[Foodbank] = List()
+  private var cities: List[String] = List()
+
   @FXML
   def initialize(): Unit = {
     setFoodbanks(MyApp.foodbanks, MyApp.citiesList)
   }
 
-  private var foodbanks: List[Foodbank] = List()
-  private var cities: List[String] = List()
-
-  def setFoodbanks(list: List[Foodbank], citiesList: List[String]): Unit = {
+  private def setFoodbanks(list: List[Foodbank], citiesList: List[String]): Unit = {
     foodbanks = list
     cities = citiesList
     setupCityComboBox()
@@ -76,7 +76,7 @@ class FoodbanksController {
     LocationSelector.setOnAction(_ => {
       val selectedCity = Option(LocationSelector.getValue).getOrElse("")
       if (selectedCity.trim.isEmpty) {
-        loadListItems(foodbanks) // Show all
+        loadListItems(foodbanks)
       } else {
         val filtered = foodbanks.filter(_.city.equalsIgnoreCase(selectedCity.trim))
         loadListItems(filtered)
