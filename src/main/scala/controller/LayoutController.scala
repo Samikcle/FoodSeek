@@ -14,19 +14,26 @@ class LayoutController {
   @FXML private var RequestMenu: Pane = _
   @FXML private var Profile: Pane = _
 
+  private var currentMenu: Pane = null;
+
   @FXML
   def initialize(): Unit = {
-    loadPage("/view/Foodbanks.fxml")
+    loadPage(FoodBankMenu, "/view/Foodbanks.fxml")
 
-    FoodBankMenu.setOnMouseClicked(_ => loadPage("/view/Foodbanks.fxml"))
-    GiveawayMenu.setOnMouseClicked(_ => loadPage("/view/Giveaway.fxml"))
-    DiscountMenu.setOnMouseClicked(_ => loadPage("/view/Discount.fxml"))
-    ManageMenu.setOnMouseClicked(_ => loadPage("/view/Manage.fxml"))
-    RequestMenu.setOnMouseClicked(_ => loadPage("/view/Requests.fxml"))
-    Profile.setOnMouseClicked(_ => loadPage("/view/Profile.fxml"))
+    FoodBankMenu.setOnMouseClicked(_ => loadPage(FoodBankMenu, "/view/Foodbanks.fxml"))
+    GiveawayMenu.setOnMouseClicked(_ => loadPage(GiveawayMenu, "/view/Giveaway.fxml"))
+    DiscountMenu.setOnMouseClicked(_ => loadPage(DiscountMenu, "/view/Discount.fxml"))
+    ManageMenu.setOnMouseClicked(_ => loadPage(ManageMenu, "/view/Manage.fxml"))
+    RequestMenu.setOnMouseClicked(_ => loadPage(RequestMenu, "/view/Requests.fxml"))
+    Profile.setOnMouseClicked(_ => loadPage(Profile, "/view/Profile.fxml"))
   }
 
-  private def loadPage(fxmlPath: String): Unit = {
+  private def loadPage(menu: Pane, fxmlPath: String): Unit = {
+    if (currentMenu != null) {
+      currentMenu.setStyle("") // remove background
+    }
+    menu.setStyle("-fx-background-color: gray;")
+    currentMenu = menu;
     val loader = new FXMLLoader(getClass.getResource(fxmlPath))
     val content: Node = loader.load()
     Content.getChildren.clear()
