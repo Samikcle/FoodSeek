@@ -39,4 +39,14 @@ class LayoutController {
     Content.getChildren.clear()
     Content.getChildren.add(content)
   }
+
+  def disableAdminMenus(): Unit = {
+    ManageMenu.setVisible(false)
+    ManageMenu.setManaged(false)
+    ManageMenu.setDisable(true)
+
+    RequestMenu.setVisible(false)
+    RequestMenu.setManaged(false)
+    RequestMenu.setDisable(true)
+  }
 }

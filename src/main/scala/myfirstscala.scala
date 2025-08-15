@@ -2,7 +2,7 @@ package main
 
 import scalafx.application.JFXApp3
 import scalafx.application.JFXApp3.PrimaryStage
-import controller.FoodbanksController
+import controller.LayoutController
 import javafx.fxml.FXMLLoader
 import scalafx.scene.Scene
 import scalafx.Includes.*
@@ -93,6 +93,8 @@ object MyApp extends JFXApp3:
 
     val loader = new FXMLLoader(getClass.getResource("/view/Layout.fxml"))
     val root = loader.load[javafx.scene.Parent]()
+    val controller = loader.getController[LayoutController]
+    controller.disableAdminMenus()
 
     stage = new PrimaryStage {
       title = "Foodbanks"
