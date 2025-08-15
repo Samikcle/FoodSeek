@@ -1,5 +1,6 @@
 package controller
 
+import main.MyApp
 import javafx.fxml.{FXML, FXMLLoader}
 import javafx.scene.control.*
 import javafx.scene.image.*
@@ -52,6 +53,7 @@ class FoodbanksController {
 
   @FXML
   def initialize(): Unit = {
+    setFoodbanks(MyApp.foodbanks, MyApp.citiesList)
   }
 
   private var foodbanks: List[Foodbank] = List()
@@ -69,7 +71,6 @@ class FoodbanksController {
 
   private def setupCityComboBox(): Unit = {
     LocationSelector.setItems(FXCollections.observableArrayList(cities.asJava))
-    LocationSelector.setEditable(false) // ⬅ Make it non-editable
 
     // Filtering when a city is selected
     LocationSelector.setOnAction(_ => {

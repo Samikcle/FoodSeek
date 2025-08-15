@@ -1,3 +1,5 @@
+package main
+
 import scalafx.application.JFXApp3
 import scalafx.application.JFXApp3.PrimaryStage
 import controller.FoodbanksController
@@ -7,7 +9,6 @@ import scalafx.Includes.*
 import scalafx.scene as sfxs
 import javafx.scene as jfxs
 import model.Foodbank
-import scalafx.scene.layout.AnchorPane
 
 object MyApp extends JFXApp3:
 
@@ -90,10 +91,8 @@ object MyApp extends JFXApp3:
 
   override def start(): Unit =
 
-    val loader = new FXMLLoader(getClass.getResource("/view/Foodbanks.fxml"))
+    val loader = new FXMLLoader(getClass.getResource("/view/Layout.fxml"))
     val root = loader.load[javafx.scene.Parent]()
-    val controller = loader.getController[FoodbanksController]
-    controller.setFoodbanks(foodbanks, citiesList)
 
     stage = new PrimaryStage {
       title = "Foodbanks"
