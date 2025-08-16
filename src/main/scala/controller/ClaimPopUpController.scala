@@ -10,10 +10,10 @@ class ClaimPopUpController {
 
   @FXML
   def initialize(): Unit = {
-    CloseButton.setOnAction(_ => close())
+
   }
 
-  private def close(): Unit = {
+  def close(): Unit = {
     val stage = CloseButton.getScene.getWindow.asInstanceOf[Stage]
     stage.close()
   }

@@ -9,6 +9,7 @@ import scalafx.Includes.*
 import scalafx.scene as sfxs
 import javafx.scene as jfxs
 import model.Foodbank
+import javafx.scene.image.Image
 
 object MyApp extends JFXApp3:
 
@@ -23,7 +24,7 @@ object MyApp extends JFXApp3:
       operatingHour = "Mon-Fri 9am-5pm",
       foodAvailable = "Rice \nBread \nMilk",
       additionalInformation = "Open to all, bring your own bag",
-      claimed = false
+      owner = -1
     ),
     Foodbank(
       logo = "placeholder.png",
@@ -35,7 +36,7 @@ object MyApp extends JFXApp3:
       operatingHour = "Mon-Sat 8am-6pm",
       foodAvailable = "Canned goods, Fresh produce",
       additionalInformation = "sdasd \ndsadasdasda \nsdasdasdasd \ndasda",
-      claimed = true
+      owner = 1
     ),
     Foodbank(
       logo = "placeholder.png",
@@ -47,7 +48,7 @@ object MyApp extends JFXApp3:
       operatingHour = "Mon-Sat 8am-6pm",
       foodAvailable = "Canned goods, Fresh produce",
       additionalInformation = "sdasd \ndsadasdasda \nsdasdasdasd \ndasda",
-      claimed = true
+      owner = 1
     ),
     Foodbank(
       logo = "placeholder.png",
@@ -59,7 +60,7 @@ object MyApp extends JFXApp3:
       operatingHour = "Mon-Sat 8am-6pm",
       foodAvailable = "Canned goods, Fresh produce",
       additionalInformation = "sdasd \ndsadasdasda \nsdasdasdasd \ndasda",
-      claimed = true
+      owner = 1
     ),
     Foodbank(
       logo = "placeholder.png",
@@ -71,7 +72,7 @@ object MyApp extends JFXApp3:
       operatingHour = "Mon-Sat 8am-6pm",
       foodAvailable = "Canned goods, Fresh produce",
       additionalInformation = "sdasd \ndsadasdasda \nsdasdasdasd \ndasda",
-      claimed = true
+      owner = 0
     ),
     Foodbank(
       logo = "FoodSeekLogo.png",
@@ -83,7 +84,7 @@ object MyApp extends JFXApp3:
       operatingHour = "Mon-Sat 8am-6pm",
       foodAvailable = "Canned goods, Fresh produce",
       additionalInformation = "sdasd \ndsadasdasda \nsdasdasdasd \ndasda",
-      claimed = true
+      owner = 1
     )
   )
 
@@ -97,8 +98,9 @@ object MyApp extends JFXApp3:
     controller.disableAdminMenus()
 
     stage = new PrimaryStage {
-      title = "Foodbanks"
+      title = "FoodSeek"
       scene = new Scene(root)
     }
+    stage.getIcons.add(new Image(getClass.getResourceAsStream("/images/FoodSeekLogo.png")))
 
 end MyApp

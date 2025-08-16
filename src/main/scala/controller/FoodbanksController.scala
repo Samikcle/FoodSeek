@@ -8,12 +8,12 @@ import javafx.scene.layout.VBox
 import model.Foodbank
 import javafx.scene.Node
 import javafx.collections.FXCollections
-import scalafx.application.JFXApp3.PrimaryStage
 import javafx.scene.Parent
 import scala.jdk.CollectionConverters.*
 import scalafx.scene.Scene
 import scalafx.stage.{Modality, Stage}
 import scalafx.Includes._
+import javafx.scene.layout.Pane
 
 class FoodbanksController {
 
@@ -55,6 +55,9 @@ class FoodbanksController {
 
   @FXML
   private var PickUp: Button = _
+
+  @FXML
+  private var BackButton: Pane = _
 
   private var foodbanks: List[Foodbank] = List()
   private var cities: List[String] = List()
@@ -117,10 +120,27 @@ class FoodbanksController {
     OperatingHour.setText(fb.operatingHour)
     FoodAvailable.setText(fb.foodAvailable)
     AdditionalInfo.setText(fb.additionalInformation)
-    Claimable.setVisible(!fb.claimed)
-    Claimable.setManaged(!fb.claimed)
-    PickUp.setVisible(fb.claimed)
-    PickUp.setManaged(fb.claimed)
+
+    if(fb.owner == -1){
+      PickUp.setVisible(false)
+      PickUp.setManaged(false)
+      PickUp.setDisable(true)
+
+      Claimable.setVisible(true)
+      Claimable.setManaged(true)
+      Claimable.setDisable(false)
+    }
+    else{
+      PickUp.setVisible(true)
+      PickUp.setManaged(true)
+      PickUp.setDisable(false)
+
+      Claimable.setVisible(false)
+      Claimable.setManaged(false)
+      Claimable.setDisable(true)
+    }
+
+
   }
 
   private def loadImage(fileName: String): Image = {
