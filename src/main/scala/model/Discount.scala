@@ -1,15 +1,13 @@
 package model
 
-case class Foodbank(
+case class Discount(
                      id: Int,
                      logo: String,
                      backgroundImage: String,
-                     name: String,
+                     discount: String,
+                     storeName: String,
                      address: String,
                      city: String,
-                     phone: String,
-                     operatingHour: String,
-                     foodAvailable: String,
+                     expiryDate: String,
                      additionalInformation: String,
-                     owner: Int
                    )

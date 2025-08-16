@@ -8,13 +8,14 @@ import scalafx.scene.Scene
 import scalafx.Includes.*
 import scalafx.scene as sfxs
 import javafx.scene as jfxs
-import model.{Foodbank, Event}
+import model.{Foodbank, Event, Discount}
 import javafx.scene.image.Image
 
 object MyApp extends JFXApp3:
 
   val foodbanks: List[Foodbank] = List(
     Foodbank(
+      id = 0,
       logo = "placeholder.png",
       backgroundImage = "placeholder.png",
       name = "Foodbank1",
@@ -27,6 +28,7 @@ object MyApp extends JFXApp3:
       owner = -1
     ),
     Foodbank(
+      id = 1,
       logo = "placeholder.png",
       backgroundImage = "placeholder.png",
       name = "Foodbank2",
@@ -39,6 +41,7 @@ object MyApp extends JFXApp3:
       owner = 1
     ),
     Foodbank(
+      id = 2,
       logo = "placeholder.png",
       backgroundImage = "placeholder.png",
       name = "Foodbank2",
@@ -51,6 +54,7 @@ object MyApp extends JFXApp3:
       owner = 1
     ),
     Foodbank(
+      id = 3,
       logo = "placeholder.png",
       backgroundImage = "placeholder.png",
       name = "Foodbank2",
@@ -63,6 +67,7 @@ object MyApp extends JFXApp3:
       owner = 1
     ),
     Foodbank(
+      id = 0,
       logo = "placeholder.png",
       backgroundImage = "placeholder.png",
       name = "Foodbank2",
@@ -75,6 +80,7 @@ object MyApp extends JFXApp3:
       owner = 0
     ),
     Foodbank(
+      id = 0,
       logo = "FoodSeekLogo.png",
       backgroundImage = "placeholder.png",
       name = "Foodbank2",
@@ -90,6 +96,7 @@ object MyApp extends JFXApp3:
 
   val events: List[Event] = List(
     Event(
+      id = 0,
       logo = "placeholder.png",
       backgroundImage = "placeholder.png",
       name = "Community Food Fair",
@@ -101,6 +108,7 @@ object MyApp extends JFXApp3:
       additionalInformation = "Open to all, bring your own bags."
     ),
     Event(
+      id = 0,
       logo = "placeholder.png",
       backgroundImage = "placeholder.png",
       name = "Weekend Food Drive",
@@ -112,6 +120,7 @@ object MyApp extends JFXApp3:
       additionalInformation = "Priority given to families with children."
     ),
     Event(
+      id = 0,
       logo = "placeholder.png",
       backgroundImage = "placeholder.png",
       name = "Charity Meal Distribution",
@@ -123,6 +132,7 @@ object MyApp extends JFXApp3:
       additionalInformation = "Limited to first 200 people."
     ),
     Event(
+      id = 0,
       logo = "placeholder.png",
       backgroundImage = "placeholder.png",
       name = "Neighborhood Food Sharing",
@@ -132,6 +142,64 @@ object MyApp extends JFXApp3:
       time = "2:00 PM - 6:00 PM",
       foodAvailable = "Vegetables, Meat, Grains",
       additionalInformation = "Bring your own container for cooked food."
+    )
+  )
+
+  val discounts: List[Discount] = List(
+    Discount(
+      id = 1,
+      logo = "placeholder.png",
+      backgroundImage = "placeholder.png",
+      discount = "20% OFF on all buckets",
+      address = "123 Main Street",
+      city = "Subang",
+      storeName = "KFC Downtown",
+      expiryDate = "25/12/2025",
+      additionalInformation = "Valid for dine-in and takeaway only."
+    ),
+    Discount(
+      id = 1,
+      logo = "placeholder.png",
+      backgroundImage = "placeholder.png",
+      discount = "Buy 1 Free 1 McFlurry",
+      address = "45 Jalan Ampang",
+      city = "KL",
+      storeName = "McDonald's Ampang",
+      expiryDate = "10/11/2025",
+      additionalInformation = "Promo available after 6pm daily."
+    ),
+    Discount(
+      id = 1,
+      logo = "placeholder.png",
+      backgroundImage = "placeholder.png",
+      discount = "15% OFF Groceries above RM100",
+      address = "Lot 88, Mid Valley Megamall",
+      city = "KL",
+      storeName = "Giant Hypermarket",
+      expiryDate = "01/01/2026",
+      additionalInformation = "Not applicable for electronics section."
+    ),
+    Discount(
+      id = 1,
+      logo = "placeholder.png",
+      backgroundImage = "placeholder.png",
+      discount = "RM10 OFF every RM50 spent",
+      address = "No. 12, Jalan Bukit Bintang",
+      city = "KL",
+      storeName = "Tesco Bukit Bintang",
+      expiryDate = "05/09/2025",
+      additionalInformation = "Limited to first 500 customers daily."
+    ),
+    Discount(
+      id = 1,
+      logo = "placeholder.png",
+      backgroundImage = "placeholder.png",
+      discount = "30% OFF Large Pizzas",
+      address = "77 Jalan Sultan",
+      city = "Subang",
+      storeName = "Pizza Hut Shah Alam",
+      expiryDate = "31/12/2025",
+      additionalInformation = "Valid for online orders only."
     )
   )
 

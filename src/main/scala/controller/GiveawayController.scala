@@ -4,13 +4,10 @@ import main.MyApp
 import javafx.fxml.{FXML, FXMLLoader}
 import javafx.scene.control.*
 import javafx.scene.image.*
-import javafx.scene.layout.{VBox, Pane}
+import javafx.scene.layout.VBox
 import javafx.scene.Node
 import javafx.collections.FXCollections
-import javafx.scene.Parent
 import scala.jdk.CollectionConverters.*
-import scalafx.scene.Scene
-import scalafx.stage.{Modality, Stage}
 import scalafx.Includes._
 import model.Event
 import java.time.LocalDate
