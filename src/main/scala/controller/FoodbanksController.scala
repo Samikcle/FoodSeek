@@ -8,7 +8,12 @@ import javafx.scene.layout.VBox
 import model.Foodbank
 import javafx.scene.Node
 import javafx.collections.FXCollections
-import scala.jdk.CollectionConverters._
+import scalafx.application.JFXApp3.PrimaryStage
+import javafx.scene.Parent
+import scala.jdk.CollectionConverters.*
+import scalafx.scene.Scene
+import scalafx.stage.{Modality, Stage}
+import scalafx.Includes._
 
 class FoodbanksController {
 
@@ -121,6 +126,19 @@ class FoodbanksController {
   private def loadImage(fileName: String): Image = {
     val stream = getClass.getResourceAsStream(s"/images/$fileName")
     new Image(stream)
+  }
+
+  def openClaimPopup(): Unit = {
+    val loader = new FXMLLoader(getClass.getResource("/view/ClaimPopUp.fxml"))
+    val root: Parent = loader.load()
+
+    val popupStage = new Stage() {
+      title = "Claim this Business"
+      initModality(Modality.ApplicationModal)
+      scene = new Scene(root)
+    }
+
+    popupStage.showAndWait()
   }
 }
 

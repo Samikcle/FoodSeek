@@ -121,7 +121,7 @@
                                     </Label>
                                     <HBox alignment="CENTER">
                                        <children>
-                                          <Button fx:id="Claimable" focusTraversable="false" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-underline: true;" text="Claim this business" />
+                                          <Button fx:id="Claimable" focusTraversable="false" mnemonicParsing="false" onAction="#openClaimPopup" style="-fx-background-color: transparent; -fx-underline: true;" text="Claim this business" />
                                        </children>
                                        <padding>
                                           <Insets top="10.0" />
