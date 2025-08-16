@@ -102,7 +102,7 @@ class FoodbanksController {
       controller.setLogo(loadImage(fb.logo))
       controller.setName(fb.name)
       controller.setCity(fb.city)
-      controller.setOperatingHour(fb.operatingHour)
+      controller.setTime(fb.operatingHour)
 
       node.setOnMouseClicked(_ => displayFoodbank(fb))
 

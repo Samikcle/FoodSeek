@@ -10,5 +10,5 @@ case class Foodbank(
                      operatingHour: String,
                      foodAvailable: String,
                      additionalInformation: String,
-                     owner: Float
+                     owner: Int
                    )

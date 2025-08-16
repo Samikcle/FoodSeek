@@ -16,7 +16,7 @@ class ListItemController {
   private var CityItem: Label = _
 
   @FXML
-  private var OHItem: Label = _
+  private var TimeItem: Label = _
 
   @FXML
   def initialize(): Unit = { }
@@ -24,5 +24,5 @@ class ListItemController {
   def setLogo(image: Image): Unit = LogoItem.setImage(image)
   def setName(name: String): Unit = NameItem.setText(name)
   def setCity(city: String): Unit = CityItem.setText(city)
-  def setOperatingHour(hour: String): Unit = OHItem.setText(hour)
+  def setTime(time: String): Unit = TimeItem.setText(time)
 }

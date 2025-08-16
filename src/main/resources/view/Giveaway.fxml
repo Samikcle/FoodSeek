@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GiveawayController">
+   <children>
+      <SplitPane dividerPositions="0.3" focusTraversable="false" layoutX="120.0" layoutY="73.0" prefHeight="600.0" prefWidth="1000.0" style="-fx-padding: 0; -fx-background-insets: 0, 0 1 0 1;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <items>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <ComboBox fx:id="EventLocationSelect" focusTraversable="false" layoutX="-8.0" layoutY="2.0" prefHeight="50.0" promptText="Select Location" stylesheets="@../style/ComboBox.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <ScrollPane fitToWidth="true" focusTraversable="false" hbarPolicy="NEVER" hmax="0.0" layoutX="14.0" layoutY="386.0" style="-fx-padding: 0;" vbarPolicy="NEVER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+                     <content>
+                        <VBox fx:id="EventContainer" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" />
+                     </content>
+                  </ScrollPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <ScrollPane fitToWidth="true" focusTraversable="false" hbarPolicy="NEVER" hmax="0.0" layoutX="181.0" layoutY="48.0" prefHeight="600.0" prefWidth="697.0" style="-fx-border-width: 0;" vbarPolicy="NEVER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <content>
+                        <Pane prefWidth="697.0" style="-fx-border-width: 0;">
+                           <children>
+                              <ImageView fx:id="EventBackground" fitHeight="125.0" fitWidth="697.0" pickOnBounds="true">
+                                 <image>
+                                    <Image url="@../images/placeholder.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="EventLogo" fitHeight="150.0" fitWidth="150.0" layoutX="22.0" layoutY="50.0" pickOnBounds="true">
+                                 <image>
+                                    <Image url="@../images/placeholder.png" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="Name" focusTraversable="false" layoutX="185.0" layoutY="141.0" prefHeight="45.0" prefWidth="499.0" style="-fx-font-weight: bold; -fx-font-size: 30px;" text="Event Name">
+                                 <font>
+                                    <Font name="System Bold" size="30.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="35.0" layoutY="217.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/maps-and-flags.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="35.0" layoutY="293.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/calendar.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="35.0" layoutY="346.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/time.png" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="EventAddress" alignment="TOP_LEFT" focusTraversable="false" layoutX="83.0" layoutY="220.0" prefHeight="32.0" prefWidth="420.0" text="Address " wrapText="true">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="EventCity" alignment="TOP_LEFT" focusTraversable="false" layoutX="83.0" layoutY="252.0" prefHeight="32.0" prefWidth="420.0" text="City" wrapText="true">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="EventDate" alignment="TOP_LEFT" focusTraversable="false" layoutX="83.0" layoutY="294.0" prefHeight="37.0" prefWidth="361.0" text="Date">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="EventTime" alignment="TOP_LEFT" focusTraversable="false" layoutX="83.0" layoutY="343.0" prefHeight="37.0" prefWidth="361.0" text="Time">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label focusTraversable="false" layoutX="35.0" layoutY="402.0" prefHeight="32.0" prefWidth="291.0" style="-fx-font-weight: bold; -fx-font-size: 22px;" text="Food Available:">
+                                 <font>
+                                    <Font size="22.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="AddToActivities" focusTraversable="false" layoutX="533.0" layoutY="214.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="135.0" style="-fx-background-radius: 0; -fx-background-color: lightgray; -fx-border-width: 3; -fx-border-color: black;" text="Add to activities">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Button>
+                              <VBox layoutY="441.0" prefWidth="697.0">
+                                 <children>
+                                    <Label fx:id="EventFood" alignment="TOP_LEFT" focusTraversable="false" prefWidth="620.0" text="Unavailable " wrapText="true">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets left="35.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label focusTraversable="false" prefHeight="32.0" prefWidth="291.0" style="-fx-font-weight: bold; -fx-font-size: 22px;" text="Additional Information:">
+                                       <font>
+                                          <Font size="22.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets left="35.0" top="10.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label fx:id="EventInfo" alignment="TOP_LEFT" focusTraversable="false" prefWidth="620.0" text="Unavailable " wrapText="true">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets left="35.0" top="10.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </Pane>
+                     </content>
+                  </ScrollPane>
+               </children>
+            </AnchorPane>
+         </items>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </SplitPane>
+   </children>
+</AnchorPane>

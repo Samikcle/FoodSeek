@@ -8,7 +8,7 @@ import scalafx.scene.Scene
 import scalafx.Includes.*
 import scalafx.scene as sfxs
 import javafx.scene as jfxs
-import model.Foodbank
+import model.{Foodbank, Event}
 import javafx.scene.image.Image
 
 object MyApp extends JFXApp3:
@@ -88,6 +88,53 @@ object MyApp extends JFXApp3:
     )
   )
 
+  val events: List[Event] = List(
+    Event(
+      logo = "placeholder.png",
+      backgroundImage = "placeholder.png",
+      name = "Community Food Fair",
+      address = "123 Main Street, Downtown",
+      city = "KL",
+      date = "20/03/2026",
+      time = "10:00 AM - 2:00 PM",
+      foodAvailable = "Rice, Vegetables, Canned Goods",
+      additionalInformation = "Open to all, bring your own bags."
+    ),
+    Event(
+      logo = "placeholder.png",
+      backgroundImage = "placeholder.png",
+      name = "Weekend Food Drive",
+      address = "456 Market Road, Subang",
+      city = "KL",
+      date = "15/04/2025",
+      time = "9:00 AM - 12:00 PM",
+      foodAvailable = "Bread, Fruits, Dairy",
+      additionalInformation = "Priority given to families with children."
+    ),
+    Event(
+      logo = "placeholder.png",
+      backgroundImage = "placeholder.png",
+      name = "Charity Meal Distribution",
+      address = "789 Green Lane, Penang",
+      city = "KL",
+      date = "05/05/2026",
+      time = "11:30 AM - 3:00 PM",
+      foodAvailable = "Cooked Meals, Snacks, Drinks",
+      additionalInformation = "Limited to first 200 people."
+    ),
+    Event(
+      logo = "placeholder.png",
+      backgroundImage = "placeholder.png",
+      name = "Neighborhood Food Sharing",
+      address = "12 Garden Avenue, Johor Bahru",
+      city = "Subang",
+      date = "01/06/2026",
+      time = "2:00 PM - 6:00 PM",
+      foodAvailable = "Vegetables, Meat, Grains",
+      additionalInformation = "Bring your own container for cooked food."
+    )
+  )
+
   val citiesList = List("Subang", "KL", "RAA", "BB")
 
   override def start(): Unit =
@@ -95,7 +142,7 @@ object MyApp extends JFXApp3:
     val loader = new FXMLLoader(getClass.getResource("/view/Layout.fxml"))
     val root = loader.load[javafx.scene.Parent]()
     val controller = loader.getController[LayoutController]
-    controller.disableAdminMenus()
+    //controller.disableAdminMenus()
 
     stage = new PrimaryStage {
       title = "FoodSeek"
