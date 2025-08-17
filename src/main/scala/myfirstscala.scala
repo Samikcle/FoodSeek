@@ -154,7 +154,7 @@ object MyApp extends JFXApp3:
       address = "123 Main Street",
       city = "Subang",
       storeName = "KFC Downtown",
-      expiryDate = "25/12/2025",
+      expiryDate = "25/02/2025",
       additionalInformation = "Valid for dine-in and takeaway only."
     ),
     Discount(

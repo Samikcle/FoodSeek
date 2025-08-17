@@ -110,7 +110,7 @@ class DiscountController {
     StoreName.setText(d.storeName)
     DiscountAddress.setText(d.address)
     DiscountCity.setText(d.city)
-    ExxpiryDate.setText(d.expiryDate)
+    ExxpiryDate.setText(s"Expire: ${d.expiryDate}")
     FoodAvailable.setText(d.additionalInformation)
   }
 

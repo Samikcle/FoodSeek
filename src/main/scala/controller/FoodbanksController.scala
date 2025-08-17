@@ -4,7 +4,7 @@ import main.MyApp
 import javafx.fxml.{FXML, FXMLLoader}
 import javafx.scene.control.*
 import javafx.scene.image.*
-import javafx.scene.layout.VBox
+import javafx.scene.layout.{AnchorPane, Pane, VBox}
 import model.Foodbank
 import javafx.scene.Node
 import javafx.collections.FXCollections
@@ -12,8 +12,7 @@ import javafx.scene.Parent
 import scala.jdk.CollectionConverters.*
 import scalafx.scene.Scene
 import scalafx.stage.{Modality, Stage}
-import scalafx.Includes._
-import javafx.scene.layout.Pane
+import scalafx.Includes.*
 
 class FoodbanksController {
 
@@ -59,12 +58,21 @@ class FoodbanksController {
   @FXML
   private var BackButton: Pane = _
 
+  @FXML
+  private var FoodBankContent: AnchorPane = _
+
   private var foodbanks: List[Foodbank] = List()
   private var cities: List[String] = List()
+  private var originalContent: Node = _
 
   @FXML
   def initialize(): Unit = {
     setFoodbanks(MyApp.foodbanks, MyApp.citiesList)
+
+    BackButton.setOnMouseClicked(_ => restoreOriginalPage())
+    BackButton.setVisible(false)
+    BackButton.setManaged(false)
+    BackButton.setDisable(true)
   }
 
   private def setFoodbanks(list: List[Foodbank], citiesList: List[String]): Unit = {
@@ -159,6 +167,33 @@ class FoodbanksController {
     }
 
     popupStage.showAndWait()
+  }
+
+  def openPickUpForm(): Unit = {
+    if (!FoodBankContent.getChildren.isEmpty) {
+      originalContent = new AnchorPane()
+      originalContent.asInstanceOf[AnchorPane].getChildren.addAll(FoodBankContent.getChildren)
+    }
+
+    val loader = new FXMLLoader(getClass.getResource("/view/PickUpForm.fxml"))
+    val formContent: Node = loader.load()
+
+    FoodBankContent.getChildren.clear()
+    FoodBankContent.getChildren.add(formContent)
+    FoodBankContent.getChildren.add(BackButton)
+
+    BackButton.setVisible(true)
+    BackButton.setManaged(true)
+    BackButton.setDisable(false)
+  }
+
+  private def restoreOriginalPage(): Unit = {
+    FoodBankContent.getChildren.clear()
+    if (originalContent != null) {
+      FoodBankContent.getChildren.addAll(originalContent.asInstanceOf[AnchorPane].getChildren)
+    }
+    BackButton.setVisible(false)
+    BackButton.setManaged(false)
   }
 }
 
