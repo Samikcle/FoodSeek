@@ -177,6 +177,10 @@ class FoodbanksController {
 
     val loader = new FXMLLoader(getClass.getResource("/view/PickUpForm.fxml"))
     val formContent: Node = loader.load()
+    val formController = loader.getController[PickUpFormController]
+
+    formController.setFoodbankName(Name.getText)
+    formController.setFoodbankLocation(s"${Address.getText}, ${City.getText}")
 
     FoodBankContent.getChildren.clear()
     FoodBankContent.getChildren.add(formContent)

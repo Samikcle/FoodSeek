@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PickUpFormController">
    <children>
       <HBox alignment="CENTER" prefHeight="50.0" style="-fx-background-color: gray;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -25,7 +25,7 @@
             </Label>
          </children>
       </HBox>
-      <ScrollPane hbarPolicy="NEVER" hmax="0.0" layoutY="50.0" vbarPolicy="NEVER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+      <ScrollPane fx:id="RequestContents" hbarPolicy="NEVER" hmax="0.0" layoutY="50.0" vbarPolicy="NEVER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
          <content>
             <VBox prefWidth="1000.0">
                <children>
@@ -226,7 +226,7 @@
                         </CheckBox>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" disable="true">
+                  <HBox fx:id="NameSection" alignment="CENTER_LEFT" disable="true">
                      <children>
                         <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -255,6 +255,33 @@
                               <Insets left="40.0" />
                            </HBox.margin>
                         </TextField>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/phone-call.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="25.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <Label text="Phone">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField fx:id="PickUpPhone" prefHeight="31.0" prefWidth="251.0" promptText="Phone">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="40.0" />
+                           </HBox.margin>
+                        </TextField>
                      </children>
                   </HBox>
                   <Label text="Notes:">
@@ -265,7 +292,7 @@
                         <Font size="25.0" />
                      </font>
                   </Label>
-                  <TextArea fx:id="PickUpNotes" prefHeight="19.0" prefWidth="890.0" promptText="Input the food(s) that you would like to pick up and other information the provider should know (allergies, etc.)" wrapText="true">
+                  <TextArea fx:id="PickUpNotes" prefHeight="80.0" promptText="Input the food(s) that you would like to pick up and other information the provider should know (allergies, etc.)" wrapText="true">
                      <VBox.margin>
                         <Insets bottom="10.0" left="55.0" right="55.0" top="10.0" />
                      </VBox.margin>
@@ -291,7 +318,7 @@
                   </Label>
                   <HBox alignment="CENTER_RIGHT">
                      <children>
-                        <Button mnemonicParsing="false" text="Submit">
+                        <Button mnemonicParsing="false" onAction="#validateForm" text="Submit">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -305,5 +332,15 @@
             </VBox>
          </content>
       </ScrollPane>
+      <Label fx:id="SuccessTextRequest" layoutX="330.0" layoutY="161.0" prefHeight="279.0" prefWidth="341.0" text="Your request has been sent to the foodbank for approval." textAlignment="CENTER" visible="false" wrapText="true">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+      <Label fx:id="SuccessRequest" layoutX="452.0" layoutY="190.0" text="Success!" textAlignment="CENTER" visible="false" wrapText="true">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
