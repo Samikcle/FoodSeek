@@ -1,0 +1,7 @@
+.combo-box {
+    -fx-font-size: 18px;
+}
+
+.combo-box .list-cell {
+    -fx-font-size: 18px;
+}

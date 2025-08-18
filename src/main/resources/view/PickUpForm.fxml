@@ -312,9 +312,9 @@
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
-                     <padding>
+                     <VBox.margin>
                         <Insets left="55.0" right="55.0" top="10.0" />
-                     </padding>
+                     </VBox.margin>
                   </Label>
                   <HBox alignment="CENTER_RIGHT">
                      <children>

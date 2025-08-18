@@ -10,10 +10,11 @@ import scalafx.scene as sfxs
 import javafx.scene as jfxs
 import model.{Foodbank, Event, Discount}
 import javafx.scene.image.Image
+import scala.collection.mutable.ListBuffer
 
 object MyApp extends JFXApp3:
 
-  val foodbanks: List[Foodbank] = List(
+  val foodbanks: ListBuffer[Foodbank] = ListBuffer(
     Foodbank(
       id = 0,
       logo = "placeholder.png",
@@ -22,7 +23,7 @@ object MyApp extends JFXApp3:
       address = "12 Jalan A",
       city = "KL",
       phone = "123456789",
-      operatingHour = "Mon-Fri 9am-5pm",
+      operatingHour = "Mon-Fri, 9:00-17:00",
       foodAvailable = "Rice \nBread \nMilk",
       additionalInformation = "Open to all, bring your own bag",
       owner = -1
@@ -35,7 +36,7 @@ object MyApp extends JFXApp3:
       address = "1 Jalan wa",
       city = "Subang",
       phone = "123456789",
-      operatingHour = "Mon-Sat 8am-6pm",
+      operatingHour = "Mon-Sat, 8:00-18:00",
       foodAvailable = "Canned goods, Fresh produce",
       additionalInformation = "sdasd \ndsadasdasda \nsdasdasdasd \ndasda",
       owner = 1
@@ -48,7 +49,7 @@ object MyApp extends JFXApp3:
       address = "1 Jalan wa",
       city = "Subang",
       phone = "123456789",
-      operatingHour = "Mon-Sat 8am-6pm",
+      operatingHour = "Mon-Sat, 8:00-18:00",
       foodAvailable = "Canned goods, Fresh produce",
       additionalInformation = "sdasd \ndsadasdasda \nsdasdasdasd \ndasda",
       owner = 1
@@ -61,7 +62,7 @@ object MyApp extends JFXApp3:
       address = "1 Jalan wa",
       city = "Subang",
       phone = "123456789",
-      operatingHour = "Mon-Sat 8am-6pm",
+      operatingHour = "Mon-Sat, 8:00-18:00",
       foodAvailable = "Canned goods, Fresh produce",
       additionalInformation = "sdasd \ndsadasdasda \nsdasdasdasd \ndasda",
       owner = 1
@@ -74,7 +75,7 @@ object MyApp extends JFXApp3:
       address = "1 Jalan wa",
       city = "Subang",
       phone = "123456789",
-      operatingHour = "Mon-Sat 8am-6pm",
+      operatingHour = "Mon-Sat, 8:00-18:00",
       foodAvailable = "Canned goods, Fresh produce",
       additionalInformation = "sdasd \ndsadasdasda \nsdasdasdasd \ndasda",
       owner = 0
@@ -87,7 +88,7 @@ object MyApp extends JFXApp3:
       address = "1 Jalan wa",
       city = "Subang",
       phone = "123456789",
-      operatingHour = "Mon-Sat 8am-6pm",
+      operatingHour = "Mon-Sat, 8:00-18:00",
       foodAvailable = "Canned goods, Fresh produce",
       additionalInformation = "sdasd \ndsadasdasda \nsdasdasdasd \ndasda",
       owner = 1
@@ -218,4 +219,10 @@ object MyApp extends JFXApp3:
     }
     stage.getIcons.add(new Image(getClass.getResourceAsStream("/images/FoodSeekLogo.png")))
 
+  def updateFoodbank(updated: Foodbank): Unit = {
+    foodbanks(updated.id) = updated
+  }
+
 end MyApp
+
+

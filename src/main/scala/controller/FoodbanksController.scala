@@ -13,6 +13,7 @@ import scala.jdk.CollectionConverters.*
 import scalafx.scene.Scene
 import scalafx.stage.{Modality, Stage}
 import scalafx.Includes.*
+import scala.collection.mutable.ListBuffer
 
 class FoodbanksController {
 
@@ -61,7 +62,7 @@ class FoodbanksController {
   @FXML
   private var FoodBankContent: AnchorPane = _
 
-  private var foodbanks: List[Foodbank] = List()
+  private var foodbanks: ListBuffer[Foodbank] = ListBuffer()
   private var cities: List[String] = List()
   private var originalContent: Node = _
 
@@ -75,11 +76,11 @@ class FoodbanksController {
     BackButton.setDisable(true)
   }
 
-  private def setFoodbanks(list: List[Foodbank], citiesList: List[String]): Unit = {
+  private def setFoodbanks(list: ListBuffer[Foodbank], citiesList: List[String]): Unit = {
     foodbanks = list
     cities = citiesList
     setupCityComboBox()
-    loadListItems(foodbanks)
+    loadListItems(foodbanks.toList)
     if (foodbanks.nonEmpty) {
       displayFoodbank(foodbanks.head)
     }
@@ -92,9 +93,9 @@ class FoodbanksController {
     LocationSelector.setOnAction(_ => {
       val selectedCity = Option(LocationSelector.getValue).getOrElse("")
       if (selectedCity.trim.isEmpty) {
-        loadListItems(foodbanks)
+        loadListItems(foodbanks.toList)
       } else {
-        val filtered = foodbanks.filter(_.city.equalsIgnoreCase(selectedCity.trim))
+        val filtered = foodbanks.filter(_.city.equalsIgnoreCase(selectedCity.trim)).toList
         loadListItems(filtered)
       }
     })
