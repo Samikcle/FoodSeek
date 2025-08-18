@@ -6,10 +6,12 @@ import javafx.scene.Node
 import main.MyApp
 import model.Activity
 import scala.jdk.CollectionConverters._
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
 class ActivitiesController {
 
-  @FXML 
+  @FXML
   private var ActivitiesList: VBox = _
 
   @FXML
@@ -20,11 +22,19 @@ class ActivitiesController {
   private def loadActivities(activities: List[Activity]): Unit = {
     ActivitiesList.getChildren.clear()
 
-    activities.foreach { activity =>
+    val formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
+    val today = LocalDate.now()
+
+    val filtered = activities.filter { activity =>
+      val activityDate = LocalDate.parse(activity.date, formatter)
+      activity.userID == MyApp.userID && !activityDate.isBefore(today)
+    }
+
+    filtered.foreach { activity =>
       val loader = new FXMLLoader(getClass.getResource("/view/activityItem.fxml"))
       val node: Node = loader.load()
       val controller = loader.getController[ActivityItemController]
-      
+
       controller.setName(activity.activityName)
       controller.setStatus(activity.status)
       controller.setTime(s"${activity.date} ${activity.time}")

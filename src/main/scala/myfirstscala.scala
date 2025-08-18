@@ -207,10 +207,10 @@ object MyApp extends JFXApp3:
   val activities: ListBuffer[Activity] = ListBuffer(
     Activity(
       id = 1,
-      userID = 101,
+      userID = 1,
       name = "Alice Johnson",
       phone = "555-1234",
-      ownerID = 201,
+      ownerID = 4,
       activityName = "Food Pickup",
       address = "123 Main St",
       city = "Springfield",
@@ -221,10 +221,10 @@ object MyApp extends JFXApp3:
     ),
     Activity(
       id = 2,
-      userID = 102,
+      userID = 2,
       name = "Bob Smith",
       phone = "555-5678",
-      ownerID = 202,
+      ownerID = 3,
       activityName = "Donation Drop",
       address = "456 Elm St",
       city = "Shelbyville",
@@ -235,10 +235,10 @@ object MyApp extends JFXApp3:
     ),
     Activity(
       id = 3,
-      userID = 103,
+      userID = 1,
       name = "Carol Davis",
       phone = "555-9012",
-      ownerID = 203,
+      ownerID = 2,
       activityName = "Community Service",
       address = "789 Oak Ave",
       city = "Ogdenville",
@@ -250,6 +250,8 @@ object MyApp extends JFXApp3:
   )
 
   val citiesList = List("Subang", "KL", "RAA", "BB")
+
+  val userID = 1
 
   override def start(): Unit =
 
