@@ -7,10 +7,10 @@ case class Activity(
                      phone: String,
                      ownerID: Int,
                      activityName: String,
-                     date: String,
-                     time: String,
                      address: String,
                      city: String,
+                     date: String,
+                     time: String,
                      notes: String,
-                     status: String
+                     status: String // pending, approved, rejected
                    )
