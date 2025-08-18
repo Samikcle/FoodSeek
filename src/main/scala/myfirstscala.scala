@@ -8,7 +8,7 @@ import scalafx.scene.Scene
 import scalafx.Includes.*
 import scalafx.scene as sfxs
 import javafx.scene as jfxs
-import model.{Foodbank, Event, Discount}
+import model.{Foodbank, Event, Discount, Activity}
 import javafx.scene.image.Image
 import scala.collection.mutable.ListBuffer
 
@@ -201,6 +201,51 @@ object MyApp extends JFXApp3:
       storeName = "Pizza Hut Shah Alam",
       expiryDate = "31/12/2025",
       additionalInformation = "Valid for online orders only."
+    )
+  )
+
+  val activities: ListBuffer[Activity] = ListBuffer(
+    Activity(
+      id = 1,
+      userID = 101,
+      name = "Alice Johnson",
+      phone = "555-1234",
+      ownerID = 201,
+      activityName = "Food Pickup",
+      address = "123 Main St",
+      city = "Springfield",
+      date = "31/12/2025",
+      time = "10:00",
+      notes = "Bring ID",
+      status = "pending"
+    ),
+    Activity(
+      id = 2,
+      userID = 102,
+      name = "Bob Smith",
+      phone = "555-5678",
+      ownerID = 202,
+      activityName = "Donation Drop",
+      address = "456 Elm St",
+      city = "Shelbyville",
+      date = "31/12/2025",
+      time = "14:30",
+      notes = "Handle with care",
+      status = "approved"
+    ),
+    Activity(
+      id = 3,
+      userID = 103,
+      name = "Carol Davis",
+      phone = "555-9012",
+      ownerID = 203,
+      activityName = "Community Service",
+      address = "789 Oak Ave",
+      city = "Ogdenville",
+      date = "31/12/2025",
+      time = "09:15",
+      notes = "Wear gloves",
+      status = "rejected"
     )
   )
 
