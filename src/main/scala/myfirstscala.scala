@@ -206,35 +206,35 @@ object MyApp extends JFXApp3:
 
   val activities: ListBuffer[Activity] = ListBuffer(
     Activity(
-      id = 1,
+      id = 0,
       userID = 1,
       name = "Alice Johnson",
       phone = "555-1234",
-      ownerID = 4,
+      ownerID = 1,
       activityName = "Food Pickup",
       address = "123 Main St",
       city = "Springfield",
       date = "31/12/2025",
       time = "10:00",
       notes = "Bring ID",
-      status = "pending"
+      status = "Pending"
     ),
     Activity(
-      id = 2,
+      id = 1,
       userID = 2,
       name = "Bob Smith",
       phone = "555-5678",
-      ownerID = 3,
+      ownerID = 1,
       activityName = "Donation Drop",
       address = "456 Elm St",
       city = "Shelbyville",
       date = "31/12/2025",
       time = "14:30",
       notes = "Handle with care",
-      status = "approved"
+      status = "Approved"
     ),
     Activity(
-      id = 3,
+      id = 2,
       userID = 1,
       name = "Carol Davis",
       phone = "555-9012",
@@ -245,7 +245,7 @@ object MyApp extends JFXApp3:
       date = "31/12/2025",
       time = "09:15",
       notes = "Wear gloves",
-      status = "rejected"
+      status = "Rejected"
     )
   )
 
@@ -268,6 +268,10 @@ object MyApp extends JFXApp3:
 
   def updateFoodbank(updated: Foodbank): Unit = {
     foodbanks(updated.id) = updated
+  }
+
+  def updateActivity(updated: Activity): Unit = {
+    activities(updated.id) = updated
   }
 
 end MyApp

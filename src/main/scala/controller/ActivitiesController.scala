@@ -3,6 +3,7 @@ package controller
 import javafx.fxml.{FXML, FXMLLoader}
 import javafx.scene.layout.VBox
 import javafx.scene.Node
+import javafx.scene.control.Label
 import main.MyApp
 import model.Activity
 import scala.jdk.CollectionConverters._
@@ -13,6 +14,9 @@ class ActivitiesController {
 
   @FXML
   private var ActivitiesList: VBox = _
+
+  @FXML
+  private var ActivitiesNone: Label = _
 
   @FXML
   def initialize(): Unit = {
@@ -30,17 +34,25 @@ class ActivitiesController {
       activity.userID == MyApp.userID && !activityDate.isBefore(today)
     }
 
-    filtered.foreach { activity =>
-      val loader = new FXMLLoader(getClass.getResource("/view/activityItem.fxml"))
-      val node: Node = loader.load()
-      val controller = loader.getController[ActivityItemController]
+    if (filtered.isEmpty) {
+      ActivitiesNone.setVisible(true)
+      ActivitiesNone.setManaged(true)
+    } else {
+      ActivitiesNone.setVisible(false)
+      ActivitiesNone.setManaged(false)
 
-      controller.setName(activity.activityName)
-      controller.setStatus(activity.status)
-      controller.setTime(s"${activity.date} ${activity.time}")
-      controller.setLocation(s"${activity.address}, ${activity.city}")
+      filtered.foreach { activity =>
+        val loader = new FXMLLoader(getClass.getResource("/view/activityItem.fxml"))
+        val node: Node = loader.load()
+        val controller = loader.getController[ActivityItemController]
 
-      ActivitiesList.getChildren.add(node)
+        controller.setName(activity.activityName)
+        controller.setStatus(activity.status)
+        controller.setTime(s"${activity.date} ${activity.time}")
+        controller.setLocation(s"${activity.address}, ${activity.city}")
+
+        ActivitiesList.getChildren.add(node)
+      }
     }
   }
 
