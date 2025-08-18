@@ -214,7 +214,7 @@ object MyApp extends JFXApp3:
       activityName = "Food Pickup",
       address = "123 Main St",
       city = "Springfield",
-      date = "31/12/2025",
+      date = "31/12/2024",
       time = "10:00",
       notes = "Bring ID",
       status = "Pending"
@@ -251,7 +251,7 @@ object MyApp extends JFXApp3:
 
   val citiesList = List("Subang", "KL", "RAA", "BB")
 
-  val userID = 1
+  val userID = 4
 
   override def start(): Unit =
 
@@ -263,6 +263,7 @@ object MyApp extends JFXApp3:
     stage = new PrimaryStage {
       title = "FoodSeek"
       scene = new Scene(root)
+      resizable = false
     }
     stage.getIcons.add(new Image(getClass.getResourceAsStream("/images/FoodSeekLogo.png")))
 
