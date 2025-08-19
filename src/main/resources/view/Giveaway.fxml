@@ -88,7 +88,7 @@
                                     <Font size="22.0" />
                                  </font>
                               </Label>
-                              <Button fx:id="AddToActivities" focusTraversable="false" layoutX="533.0" layoutY="214.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="135.0" style="-fx-background-radius: 0; -fx-background-color: lightgray; -fx-border-width: 3; -fx-border-color: black;" text="Add to activities">
+                              <Button fx:id="AddToActivities" focusTraversable="false" layoutX="533.0" layoutY="214.0" mnemonicParsing="false" onAction="#addEventAsActivity" prefHeight="31.0" prefWidth="135.0" style="-fx-background-radius: 0; -fx-background-color: lightgray; -fx-border-width: 3; -fx-border-color: black;" text="Add to activities">
                                  <font>
                                     <Font size="15.0" />
                                  </font>

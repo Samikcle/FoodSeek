@@ -8,8 +8,8 @@ import javafx.scene.layout.VBox
 import javafx.scene.Node
 import javafx.collections.FXCollections
 import scala.jdk.CollectionConverters.*
-import scalafx.Includes._
-import model.Event
+import scalafx.Includes.*
+import model.{Activity, Event}
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
@@ -53,6 +53,7 @@ class GiveawayController {
 
   private var events: List[Event] = List()
   private var cities: List[String] = List()
+  private var currentEvent: Event = _
 
   private val dateFormat: DateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
 
@@ -70,6 +71,8 @@ class GiveawayController {
       val eventDate = LocalDate.parse(event.date, dateFormat)
       eventDate.isAfter(today)
     })
+
+    events = events.sortBy(ev => LocalDate.parse(ev.date, dateFormat))
 
     setupCityComboBox()
     loadListItems(events)
@@ -111,6 +114,8 @@ class GiveawayController {
   }
 
   private def displayEvent(ev: Event): Unit = {
+    currentEvent = ev
+
     EventLogo.setImage(loadImage(ev.logo))
     EventBackground.setImage(loadImage(ev.backgroundImage))
     Name.setText(ev.name)
@@ -125,6 +130,28 @@ class GiveawayController {
   private def loadImage(fileName: String): Image = {
     val stream = getClass.getResourceAsStream(s"/images/$fileName")
     new Image(stream)
+  }
+
+  def addEventAsActivity(): Unit = {
+    if (currentEvent == null) return
+
+    val newId = MyApp.activities.size
+    val newActivity = Activity(
+      id = newId,
+      userID = MyApp.currentUserID,
+      name = null,
+      phone = null,
+      ownerID = -1,
+      activityName = currentEvent.name,
+      address = currentEvent.address,
+      city = currentEvent.city,
+      date = currentEvent.date,
+      time = currentEvent.time,
+      notes = null,
+      status = null
+    )
+
+    MyApp.addActivity(newActivity)
   }
 
 }

@@ -64,6 +64,8 @@ class DiscountController {
       expiry.isAfter(today)
     })
 
+    discounts = discounts.sortBy(d => LocalDate.parse(d.expiryDate, dateFormat))
+
     setupCityComboBox()
     loadListItems(discounts)
     if (discounts.nonEmpty) {

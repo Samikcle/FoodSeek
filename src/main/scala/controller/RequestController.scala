@@ -36,14 +36,18 @@ class RequestController {
         !activityDate.isBefore(today) // today or after
     }
 
-    if (filtered.isEmpty) {
+    val sorted = filtered.sortBy { activity =>
+      LocalDate.parse(activity.date, formatter)
+    }
+
+    if (sorted.isEmpty) {
       RequestNone.setVisible(true)
       RequestNone.setManaged(true)
     } else {
       RequestNone.setVisible(false)
       RequestNone.setManaged(false)
 
-      filtered.foreach { activity =>
+      sorted.foreach { activity =>
         val loader = new FXMLLoader(getClass.getResource("/view/RequestItem.fxml"))
         val node: Node = loader.load()
         val controller = loader.getController[RequestItemController]
@@ -52,7 +56,7 @@ class RequestController {
 
         RequestList.getChildren.add(node)
       }
-    }  
+    }
   }
 
 }

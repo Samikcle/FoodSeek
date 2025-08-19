@@ -34,14 +34,18 @@ class ActivitiesController {
       activity.userID == MyApp.currentUserID && !activityDate.isBefore(today)
     }
 
-    if (filtered.isEmpty) {
+    val sorted = filtered.sortBy { activity =>
+      LocalDate.parse(activity.date, formatter)
+    }
+
+    if (sorted.isEmpty) {
       ActivitiesNone.setVisible(true)
       ActivitiesNone.setManaged(true)
     } else {
       ActivitiesNone.setVisible(false)
       ActivitiesNone.setManaged(false)
 
-      filtered.foreach { activity =>
+      sorted.foreach { activity =>
         val loader = new FXMLLoader(getClass.getResource("/view/activityItem.fxml"))
         val node: Node = loader.load()
         val controller = loader.getController[ActivityItemController]

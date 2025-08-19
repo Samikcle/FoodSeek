@@ -76,9 +76,9 @@ object MyApp extends JFXApp3:
       city = "Subang",
       phone = "123456789",
       operatingHour = "Mon-Sat, 8:00-18:00",
-      foodAvailable = "Canned goods, Fresh produce",
+      foodAvailable = "Canned goods, Fresh produceaaa",
       additionalInformation = "sdasd \ndsadasdasda \nsdasdasdasd \ndasda",
-      owner = 0
+      owner = 4
     ),
     Foodbank(
       id = 0,
@@ -279,8 +279,12 @@ object MyApp extends JFXApp3:
     foodbanks(updated.id) = updated
   }
 
+  def updateActivity(updated: Activity): Unit = {
+    activities(updated.id) = updated
+  }
+
   def addActivity(newActivity: Activity): Unit = {
-    activities.append(newActivity) 
+    activities.append(newActivity)
   }
 
   def setOwnedFoodbank(foodbank: Foodbank): Unit = {
