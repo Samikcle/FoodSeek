@@ -65,6 +65,7 @@ class FoodbanksController {
   private var foodbanks: ListBuffer[Foodbank] = ListBuffer()
   private var cities: List[String] = List()
   private var originalContent: Node = _
+  private var currentFoodbank: Foodbank = _
 
   @FXML
   def initialize(): Unit = {
@@ -120,6 +121,8 @@ class FoodbanksController {
   }
 
   private def displayFoodbank(fb: Foodbank): Unit = {
+    currentFoodbank = fb
+
     Logo.setImage(loadImage(fb.logo))
     BackgroundImage.setImage(loadImage(fb.backgroundImage))
     Name.setText(fb.name)
@@ -180,8 +183,7 @@ class FoodbanksController {
     val formContent: Node = loader.load()
     val formController = loader.getController[PickUpFormController]
 
-    formController.setFoodbankName(Name.getText)
-    formController.setFoodbankLocation(s"${Address.getText}, ${City.getText}")
+    formController.setFoodbank(currentFoodbank)
 
     FoodBankContent.getChildren.clear()
     FoodBankContent.getChildren.add(formContent)

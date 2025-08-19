@@ -3,8 +3,9 @@ package controller
 import javafx.fxml.FXML
 import javafx.scene.control.{Button, CheckBox, Label, ScrollPane, TextArea, TextField}
 import javafx.scene.layout.HBox
-
 import java.time.{LocalDate, LocalDateTime}
+import main.MyApp
+import model.{Activity, Foodbank}
 
 class PickUpFormController {
 
@@ -56,6 +57,8 @@ class PickUpFormController {
   @FXML
   private var RequestContents: ScrollPane = _
 
+  private var currentFoodbank: Foodbank = _
+
   @FXML
   def initialize(): Unit = {
     PickUpError.setVisible(false)
@@ -66,8 +69,11 @@ class PickUpFormController {
     })
   }
 
-  def setFoodbankName(name: String): Unit = FoodbankName.setText(name)
-  def setFoodbankLocation(location: String): Unit = FoodbankLocation.setText(location)
+  def setFoodbank(fb: Foodbank): Unit = {
+    currentFoodbank = fb
+    FoodbankName.setText(fb.name)
+    FoodbankLocation.setText(s"${fb.address}, ${fb.city}")
+  }
 
   def validateForm(): Unit = {
     val dayStr = PickUpDay.getText.trim
@@ -128,6 +134,9 @@ class PickUpFormController {
       return
     }
 
+    var name = MyApp.accounts(MyApp.currentUserID).name
+    var phone = MyApp.accounts(MyApp.currentUserID).phoneNo
+
     if (PickUpOther.isSelected) {
       if (PickUpName.getText.trim.isEmpty) {
         showError("Name cannot be empty")
@@ -137,7 +146,27 @@ class PickUpFormController {
         showError("Phone cannot be empty")
         return
       }
+      name = PickUpName.getText.trim
+      phone = PickUpPhone.getText.trim
     }
+
+    val newId = MyApp.activities.size
+    val newActivity = Activity(
+      id = newId,
+      userID = MyApp.currentUserID,
+      name = name,
+      phone = phone,
+      ownerID = currentFoodbank.owner,
+      activityName = currentFoodbank.name,
+      address = currentFoodbank.address,
+      city = currentFoodbank.city,
+      date = f"$day%02d/$month%02d/$year%04d",
+      time = f"$hour%02d:$minute%02d",
+      notes = PickUpNotes.getText.trim,
+      status = "Pending"
+    )
+
+    MyApp.addActivity(newActivity)
 
     RequestContents.setContent(null)
     SuccessTextRequest.setVisible(true)

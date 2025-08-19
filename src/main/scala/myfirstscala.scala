@@ -279,8 +279,8 @@ object MyApp extends JFXApp3:
     foodbanks(updated.id) = updated
   }
 
-  def updateActivity(updated: Activity): Unit = {
-    activities(updated.id) = updated
+  def addActivity(newActivity: Activity): Unit = {
+    activities.append(newActivity) 
   }
 
   def setOwnedFoodbank(foodbank: Foodbank): Unit = {
