@@ -8,7 +8,7 @@ import scalafx.scene.Scene
 import scalafx.Includes.*
 import scalafx.scene as sfxs
 import javafx.scene as jfxs
-import model.{Foodbank, Event, Discount, Activity}
+import model.{Foodbank, Event, Discount, Activity, Account, Owner, User}
 import javafx.scene.image.Image
 import scala.collection.mutable.ListBuffer
 
@@ -39,7 +39,7 @@ object MyApp extends JFXApp3:
       operatingHour = "Mon-Sat, 8:00-18:00",
       foodAvailable = "Canned goods, Fresh produce",
       additionalInformation = "sdasd \ndsadasdasda \nsdasdasdasd \ndasda",
-      owner = 1
+      owner = 0
     ),
     Foodbank(
       id = 2,
@@ -253,12 +253,20 @@ object MyApp extends JFXApp3:
 
   val userID = 4
 
+  var ownedFoodbank: Foodbank = null
+
+  val accounts: List[Account] = List(
+    new Owner(0, "alice01", "pass123", "Alice Johnson", "555-1234", "Standard"),
+    new User(1, "bob99", "secure456", "Bob Smith", "555-5678", "Premium"),
+    new User(2, "charlieX", "charlie789", "Charlie Brown", "555-2468", "Standard"),
+    new User(3, "dianaK", "hunter2024", "Diana King", "555-1357", "Admin"),
+    new User(4, "eve007", "eveSecure!", "Eve Adams", "555-9999", "Premium")
+  )
+
+
   override def start(): Unit =
 
-    val loader = new FXMLLoader(getClass.getResource("/view/Layout.fxml"))
-    val root = loader.load[javafx.scene.Parent]()
-    val controller = loader.getController[LayoutController]
-    //controller.disableAdminMenus()
+    val root = accounts(1).setupLayout()
 
     stage = new PrimaryStage {
       title = "FoodSeek"
@@ -273,6 +281,10 @@ object MyApp extends JFXApp3:
 
   def updateActivity(updated: Activity): Unit = {
     activities(updated.id) = updated
+  }
+
+  def setOwnedFoodbank(foodbank: Foodbank): Unit = {
+    ownedFoodbank = foodbank
   }
 
 end MyApp

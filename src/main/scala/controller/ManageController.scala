@@ -59,7 +59,7 @@ class ManageController {
     val days = List("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun")
     ManageDay1.setItems(FXCollections.observableArrayList(days.asJava))
     ManageDay2.setItems(FXCollections.observableArrayList(days.asJava))
-    currentFoodbank = MyApp.foodbanks(1)
+    currentFoodbank = MyApp.ownedFoodbank
     loadFoodbank(currentFoodbank)
   }
 
