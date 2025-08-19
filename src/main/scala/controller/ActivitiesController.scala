@@ -31,7 +31,7 @@ class ActivitiesController {
 
     val filtered = activities.filter { activity =>
       val activityDate = LocalDate.parse(activity.date, formatter)
-      activity.userID == MyApp.userID && !activityDate.isBefore(today)
+      activity.userID == MyApp.currentUserID && !activityDate.isBefore(today)
     }
 
     if (filtered.isEmpty) {

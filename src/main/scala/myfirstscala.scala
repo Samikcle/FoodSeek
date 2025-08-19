@@ -251,7 +251,7 @@ object MyApp extends JFXApp3:
 
   val citiesList = List("Subang", "KL", "RAA", "BB")
 
-  val userID = 4
+  val currentUserID = 0
 
   var ownedFoodbank: Foodbank = null
 
@@ -266,7 +266,7 @@ object MyApp extends JFXApp3:
 
   override def start(): Unit =
 
-    val root = accounts(1).setupLayout()
+    val root = accounts(currentUserID).setupLayout()
 
     stage = new PrimaryStage {
       title = "FoodSeek"

@@ -32,7 +32,7 @@ class RequestController {
     val filtered = activities.filter { activity =>
       val activityDate = LocalDate.parse(activity.date, formatter)
       activity.status == "Pending" &&
-        activity.ownerID == MyApp.userID &&
+        activity.ownerID == MyApp.currentUserID &&
         !activityDate.isBefore(today) // today or after
     }
 

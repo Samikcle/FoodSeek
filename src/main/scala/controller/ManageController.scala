@@ -100,6 +100,9 @@ class ManageController {
   }
 
   def updateFoodbank(): Unit = {
+    ManageError.setManaged(true)
+    ManageError.setVisible(true)
+
     if (ManageFoodbank.getText.trim.isEmpty ||
       ManageAddress.getText.trim.isEmpty ||
       ManageCity.getValue == null ||
@@ -115,8 +118,7 @@ class ManageController {
 
       ManageError.setText("Make sure all fields are filled")
       ManageError.setStyle("-fx-text-fill: red;")
-      ManageError.setManaged(true)
-      ManageError.setVisible(true)
+
       return
     }
 
@@ -131,8 +133,7 @@ class ManageController {
       case _: NumberFormatException =>
         ManageError.setText("Time format incorrect")
         ManageError.setStyle("-fx-text-fill: red;")
-        ManageError.setManaged(true)
-        ManageError.setVisible(true)
+
         return
     }
 
@@ -140,15 +141,13 @@ class ManageController {
       min1 < 0 || min1 > 59 || min2 < 0 || min2 > 59) {
       ManageError.setText("Time format incorrect")
       ManageError.setStyle("-fx-text-fill: red;")
-      ManageError.setManaged(true)
-      ManageError.setVisible(true)
+
       return
     }
 
     ManageError.setText("Success")
     ManageError.setStyle("-fx-text-fill: green;")
-    ManageError.setManaged(true)
-    ManageError.setVisible(true)
+
 
     val updatedFoodbank = Foodbank(
       id = currentFoodbank.id,
