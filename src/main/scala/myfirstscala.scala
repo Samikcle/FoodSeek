@@ -11,91 +11,14 @@ import javafx.scene as jfxs
 import javafx.scene.Parent
 import model.{Account, Activity, Discount, Event, Foodbank, Owner, User}
 import javafx.scene.image.Image
+import scala.io.Source
+import java.io.{File, PrintWriter}
 
 import scala.collection.mutable.ListBuffer
 
 object MyApp extends JFXApp3:
 
-  val foodbanks: ListBuffer[Foodbank] = ListBuffer(
-    Foodbank(
-      id = 0,
-      logo = "placeholder.png",
-      backgroundImage = "placeholder.png",
-      name = "Foodbank1",
-      address = "12 Jalan A",
-      city = "KL",
-      phone = "123456789",
-      operatingHour = "Mon-Fri, 9:00-17:00",
-      foodAvailable = "Rice \nBread \nMilk",
-      additionalInformation = "Open to all, bring your own bag",
-      owner = -1
-    ),
-    Foodbank(
-      id = 1,
-      logo = "placeholder.png",
-      backgroundImage = "placeholder.png",
-      name = "Foodbank2",
-      address = "1 Jalan wa",
-      city = "Subang",
-      phone = "123456789",
-      operatingHour = "Mon-Sat, 8:00-18:00",
-      foodAvailable = "Canned goods, Fresh produce",
-      additionalInformation = "sdasd \ndsadasdasda \nsdasdasdasd \ndasda",
-      owner = 0
-    ),
-    Foodbank(
-      id = 2,
-      logo = "placeholder.png",
-      backgroundImage = "placeholder.png",
-      name = "Foodbank2",
-      address = "1 Jalan wa",
-      city = "Subang",
-      phone = "123456789",
-      operatingHour = "Mon-Sat, 8:00-18:00",
-      foodAvailable = "Canned goods, Fresh produce",
-      additionalInformation = "sdasd \ndsadasdasda \nsdasdasdasd \ndasda",
-      owner = 1
-    ),
-    Foodbank(
-      id = 3,
-      logo = "placeholder.png",
-      backgroundImage = "placeholder.png",
-      name = "Foodbank2",
-      address = "1 Jalan wa",
-      city = "Subang",
-      phone = "123456789",
-      operatingHour = "Mon-Sat, 8:00-18:00",
-      foodAvailable = "Canned goods, Fresh produce",
-      additionalInformation = "sdasd \ndsadasdasda \nsdasdasdasd \ndasda",
-      owner = 1
-    ),
-    Foodbank(
-      id = 0,
-      logo = "placeholder.png",
-      backgroundImage = "placeholder.png",
-      name = "Foodbank2",
-      address = "1 Jalan wa",
-      city = "Subang",
-      phone = "123456789",
-      operatingHour = "Mon-Sat, 8:00-18:00",
-      foodAvailable = "Canned goods, Fresh produceaaa",
-      additionalInformation = "sdasd \ndsadasdasda \nsdasdasdasd \ndasda",
-      owner = 4
-    ),
-    Foodbank(
-      id = 0,
-      logo = "FoodSeekLogo.png",
-      backgroundImage = "placeholder.png",
-      name = "Foodbank2",
-      address = "1 Jalan wa",
-      city = "Subang",
-      phone = "123456789",
-      operatingHour = "Mon-Sat, 8:00-18:00",
-      foodAvailable = "Canned goods, Fresh produce",
-      additionalInformation = "sdasd \ndsadasdasda \nsdasdasdasd \ndasda",
-      owner = 1
-    )
-  )
+  var foodbanks: ListBuffer[Foodbank] = ListBuffer()
 
   val events: List[Event] = List(
     Event(
@@ -251,7 +174,7 @@ object MyApp extends JFXApp3:
     )
   )
 
-  val citiesList = List("Subang", "KL", "RAA", "BB")
+  var citiesList: List[String] = List()
 
   var currentUserID = 0
 
@@ -267,6 +190,10 @@ object MyApp extends JFXApp3:
 
 
   override def start(): Unit =
+
+    foodbanks = loadFoodbanksFromFile("src/main/resources/data/foodbanks.txt")
+    saveFoodbanksToFile("src/main/resources/data/foodbanks.txt")
+    citiesList = loadSupportedCities("src/main/resources/data/supportedcities.txt")
 
     val loader = new FXMLLoader(getClass.getResource("/view/Login.fxml"))
     val root = loader.load[javafx.scene.Parent]()
@@ -305,6 +232,57 @@ object MyApp extends JFXApp3:
 
   def setScene(root: Parent): Unit =
     stage.setScene(new Scene(root))
+
+  def loadFoodbanksFromFile(filePath: String): ListBuffer[Foodbank] = {
+    val source = Source.fromFile(filePath)
+    val banks = source.getLines().toList.map { line =>
+      val parts = line.split("\\|", -1).map(_.trim)
+      Foodbank(
+        id = parts(0).toInt,
+        logo = parts(1),
+        backgroundImage = parts(2),
+        name = parts(3),
+        address = parts(4),
+        city = parts(5),
+        phone = parts(6),
+        operatingHour = parts(7),
+        foodAvailable = parts(8),
+        additionalInformation = parts(9),
+        owner = parts(10).toInt
+      )
+    }
+    source.close()
+    ListBuffer.from(banks)
+  }
+
+  def saveFoodbanksToFile(filePath: String): Unit = {
+    val writer = new PrintWriter(new File(filePath))
+    foodbanks.foreach { fb =>
+      val line = List(
+        fb.id,
+        fb.logo,
+        fb.backgroundImage,
+        fb.name,
+        fb.address,
+        fb.city,
+        fb.phone,
+        fb.operatingHour,
+        fb.foodAvailable,
+        fb.additionalInformation,
+        fb.owner
+      ).mkString("|")
+
+      writer.println(line)
+    }
+    writer.close()
+  }
+
+  def loadSupportedCities(filePath: String): List[String] = {
+    val source = Source.fromFile(filePath)
+    val line = source.getLines().toList.headOption.getOrElse("")
+    source.close()
+    line.split(",").map(_.trim).toList
+  }
 
 end MyApp
 

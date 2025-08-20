@@ -1,0 +1,6 @@
+0|448logo.png|448background.png|448 Food Bank|36-G, Jalan USJ 1/1c, Usj 1, 47620|Subang Jaya|012-385 3448|Mon-Fri, 9:30-17:00|Contact us for more information on available food|More information on our website: \nhttps://www.448foodbank.org|0
+1|pjfblogo.png|pjfbbackground.png|Pj City Food Bank|A-G, 10, Jalan Sungai Jernih 8/1, Avenue 8, 46050|Petaling Jaya|011-6216 8578|Unavailable|Unavailable|Unavailable|-1
+2|foodaidlogo.png|foodaidbackground.png|Food Aid Foundation|9, Jalan 7/118b, Desa Tun Razak, 56000|Kuala Lumpur|03-9226 5500|Mon-Sat, 9:00-17:00|Unavailable|Unavailable|-1
+3|yayasanfblogo.png|yayasanfbbackground.png|Yayasan Food Bank Malaysia|No.15 Jalan BA 2/1 Kawasan Perindustrian, Bukit Angkat, 43000|Kajang|03-8736 0117|Mon-Fri, 9:00-17:00|Baked foods and snack foods available|YAYASAN FOOD BANK MALAYSIA (YFBM) was established on 7 January 2019 as a Non-Profit @ Non-Government Organization (NGO) that actively work on social responsibility programs.|1
+4|tlfplogo.png|tlfpbackground.png|The Lost Food Project|Jalan Chan Sow Lin, Chan Sow Lin, 55200|Kuala Lumpur|012-329 3256|Mon-Sat, 9:00-18:00|Unavailable|Unavailable|-1
+5|cceplogo.png|ccepbackground.png|CCEP Foundation|31, JALAN 14/56, SECTION 51A, 46100|Petaling Jaya|03-7955 9999|Mon-Sat, 9:00-17:00|Unavailable|Unavailable|-1

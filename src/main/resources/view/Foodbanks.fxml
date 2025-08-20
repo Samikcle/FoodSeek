@@ -63,7 +63,7 @@
                                     <Image url="@../images/time.png" />
                                  </image>
                               </ImageView>
-                              <Label fx:id="Address" alignment="TOP_LEFT" focusTraversable="false" layoutX="83.0" layoutY="220.0" prefHeight="32.0" prefWidth="420.0" text="Address " wrapText="true">
+                              <Label fx:id="Address" alignment="TOP_LEFT" focusTraversable="false" layoutX="83.0" layoutY="220.0" prefHeight="32.0" prefWidth="594.0" text="Address " wrapText="true">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
