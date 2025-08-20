@@ -111,6 +111,9 @@ class GiveawayController {
 
       EventContainer.getChildren.add(node)
     }
+    val loaderSuggest = new FXMLLoader(getClass.getResource("/view/Suggest.fxml"))
+    val nodeSuggest: Node = loaderSuggest.load()
+    EventContainer.getChildren.add(nodeSuggest)
   }
 
   private def displayEvent(ev: Event): Unit = {

@@ -118,6 +118,9 @@ class FoodbanksController {
 
       ItemContainer.getChildren.add(node)
     }
+    val loaderSuggest = new FXMLLoader(getClass.getResource("/view/Suggest.fxml"))
+    val nodeSuggest: Node = loaderSuggest.load()
+    ItemContainer.getChildren.add(nodeSuggest)
   }
 
   private def displayFoodbank(fb: Foodbank): Unit = {

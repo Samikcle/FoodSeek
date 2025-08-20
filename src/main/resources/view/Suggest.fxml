@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="297.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="51.0" layoutY="10.0" text="Know a resource that’s missing here?" />
+      <Label layoutX="18.0" layoutY="27.0" prefHeight="34.0" prefWidth="262.0" text="Contact us at suggest@foodseek.com to suggest it and help others in your community!" textAlignment="CENTER" wrapText="true" />
+   </children>
+</AnchorPane>

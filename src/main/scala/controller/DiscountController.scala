@@ -103,6 +103,9 @@ class DiscountController {
 
       DiscountContainer.getChildren.add(node)
     }
+    val loaderSuggest = new FXMLLoader(getClass.getResource("/view/Suggest.fxml"))
+    val nodeSuggest: Node = loaderSuggest.load()
+    DiscountContainer.getChildren.add(nodeSuggest)
   }
 
   private def displayDiscount(d: Discount): Unit = {
