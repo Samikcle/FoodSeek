@@ -6,7 +6,6 @@ import javafx.scene.layout.{VBox, HBox}
 import main.MyApp
 import model.Account
 import javafx.scene.input.MouseEvent
-import javafx.scene.paint.Color
 
 class ProfileController {
 
@@ -161,6 +160,7 @@ class ProfileController {
       ProfileNameError.setStyle("-fx-text-fill: green;")
 
       ProfileNewName.clear()
+      MyApp.saveAccountsToFile("src/main/resources/data/accounts.txt")
     }
   }
 
@@ -180,6 +180,7 @@ class ProfileController {
 
       ProfilePhoneError.setText("Success")
       ProfilePhoneError.setStyle("-fx-text-fill: green;")
+      MyApp.saveAccountsToFile("src/main/resources/data/accounts.txt")
     }
   }
 

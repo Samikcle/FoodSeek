@@ -1,0 +1,5 @@
+0|jayagrocerlogo.png|jayagrocerbackground.png|30% off expiring bakery items|Jaya Grocer|SS15 Courtyard, Jalan SS15/4G|Subang Jaya|25/08/2025|Freshly baked bread and pastries nearing expiry. Limited stock, first come first served.
+1|mcdonaldlogo.png|mcdonaldbackground.png|RM5 off McValue Meal with minimum spend RM20|McDonald’s|Jalan Universiti|Petaling Jaya|15/09/2025|Valid for dine-in and takeaway. Not applicable for delivery.
+2|rsklogo.png|rskbackground.png|Grand Opening: 20% off total bill|Restoran Selera Kampung|Mid Valley Megamall|Kuala Lumpur|05/10/2025|Applicable to all menu items. Service charge and SST not included in discount.
+3|711logo.png|711background.png|Buy 1 Free 1 on ready-to-eat meals|7-Eleven|Jalan Bukit, Kajang Town Centre|Kajang|12/09/2025|Offer applies to selected sandwiches and onigiri. While stocks last.
+4|kfclogo.png|kfcbackground.png|Free 1-piece chicken with minimum spend RM25|KFC|Jalan SS 21/37, Damansara Uptown|Petaling Jaya|30/09/2025|Available for dine-in and takeaway only. Limited to 1 redemption per receipt.

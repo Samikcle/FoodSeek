@@ -116,7 +116,7 @@ class DiscountController {
     DiscountAddress.setText(d.address)
     DiscountCity.setText(d.city)
     ExxpiryDate.setText(s"Expire: ${d.expiryDate}")
-    FoodAvailable.setText(d.additionalInformation)
+    FoodAvailable.setText(s"${d.discount}\n${d.additionalInformation}")
   }
 
   private def loadImage(fileName: String): Image = {

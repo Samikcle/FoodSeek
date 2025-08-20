@@ -142,16 +142,16 @@ class GiveawayController {
     val newActivity = Activity(
       id = newId,
       userID = MyApp.currentUserID,
-      name = null,
-      phone = null,
+      name = "",
+      phone = "",
       ownerID = -1,
       activityName = currentEvent.name,
       address = currentEvent.address,
       city = currentEvent.city,
       date = currentEvent.date,
       time = currentEvent.time,
-      notes = null,
-      status = null
+      notes = "",
+      status = ""
     )
 
     MyApp.addActivity(newActivity)

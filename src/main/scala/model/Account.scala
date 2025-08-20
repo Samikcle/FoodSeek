@@ -3,6 +3,7 @@ package model
 import controller.LayoutController
 import javafx.fxml.FXMLLoader
 import javafx.scene.Parent
+import main.MyApp
 
 abstract class Account (
                 val userID: Int,
@@ -22,6 +23,7 @@ abstract class Account (
   def changePassword(oldPassword: String, newPassword:String):Boolean = {
     if(oldPassword == password){
       password = newPassword
+      MyApp.saveAccountsToFile("src/main/resources/data/accounts.txt")
       return true
     }
     false
@@ -33,5 +35,7 @@ abstract class Account (
     val controller = loader.getController[LayoutController]
     root
   }
+
+  def getPassword: String = password
 
 }
