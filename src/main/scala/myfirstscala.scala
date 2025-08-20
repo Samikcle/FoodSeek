@@ -8,8 +8,10 @@ import scalafx.scene.Scene
 import scalafx.Includes.*
 import scalafx.scene as sfxs
 import javafx.scene as jfxs
-import model.{Foodbank, Event, Discount, Activity, Account, Owner, User}
+import javafx.scene.Parent
+import model.{Account, Activity, Discount, Event, Foodbank, Owner, User}
 import javafx.scene.image.Image
+
 import scala.collection.mutable.ListBuffer
 
 object MyApp extends JFXApp3:
@@ -251,22 +253,23 @@ object MyApp extends JFXApp3:
 
   val citiesList = List("Subang", "KL", "RAA", "BB")
 
-  val currentUserID = 0
+  var currentUserID = 0
 
   var ownedFoodbank: Foodbank = null
 
-  val accounts: List[Account] = List(
-    new Owner(0, "alice01", "pass123", "Alice Johnson", "555-1234", "Standard"),
-    new User(1, "bob99", "secure456", "Bob Smith", "555-5678", "Premium"),
-    new User(2, "charlieX", "charlie789", "Charlie Brown", "555-2468", "Standard"),
-    new User(3, "dianaK", "hunter2024", "Diana King", "555-1357", "Admin"),
-    new User(4, "eve007", "eveSecure!", "Eve Adams", "555-9999", "Premium")
+  val accounts: ListBuffer[Account] = ListBuffer(
+    new Owner(0, "alice01", "pass123", "Alice Johnson", "555-1234", "Owner"),
+    new User(1, "bob99", "secure456", "Bob Smith", "555-5678", "User"),
+    new User(2, "charlieX", "charlie789", "Charlie Brown", "555-2468", "User"),
+    new User(3, "dianaK", "hunter2024", "Diana King", "555-1357", "User"),
+    new User(4, "eve007", "eveSecure!", "Eve Adams", "555-9999", "User")
   )
 
 
   override def start(): Unit =
 
-    val root = accounts(currentUserID).setupLayout()
+    val loader = new FXMLLoader(getClass.getResource("/view/Login.fxml"))
+    val root = loader.load[javafx.scene.Parent]()
 
     stage = new PrimaryStage {
       title = "FoodSeek"
@@ -274,6 +277,7 @@ object MyApp extends JFXApp3:
       resizable = false
     }
     stage.getIcons.add(new Image(getClass.getResourceAsStream("/images/FoodSeekLogo.png")))
+
 
   def updateFoodbank(updated: Foodbank): Unit = {
     foodbanks(updated.id) = updated
@@ -290,6 +294,17 @@ object MyApp extends JFXApp3:
   def setOwnedFoodbank(foodbank: Foodbank): Unit = {
     ownedFoodbank = foodbank
   }
+
+  def newAccount(account: Account): Unit = {
+    accounts.append(account)
+  }
+
+  def loadLogin(): Parent =
+    val loader = new javafx.fxml.FXMLLoader(getClass.getResource("/view/Login.fxml"))
+    loader.load[javafx.scene.Parent]()
+
+  def setScene(root: Parent): Unit =
+    stage.setScene(new Scene(root))
 
 end MyApp
 

@@ -102,6 +102,7 @@ class ProfileController {
     ProfileChangePassword.setOnMouseClicked((_: MouseEvent) => showPasswordSection())
     ProfileNameEdit.setOnMouseClicked((_: MouseEvent) => showNameSection())
     ProfilePhoneEdit.setOnMouseClicked((_: MouseEvent) => showPhoneSection())
+    ProfileLogout.setOnMouseClicked((_: MouseEvent) => handleLogout())
   }
 
   private def showPasswordSection(): Unit = {
@@ -180,6 +181,14 @@ class ProfileController {
       ProfilePhoneError.setText("Success")
       ProfilePhoneError.setStyle("-fx-text-fill: green;")
     }
+  }
+
+  private def handleLogout(): Unit = {
+    import javafx.fxml.FXMLLoader
+
+    val loader = new FXMLLoader(getClass.getResource("/view/Login.fxml"))
+    val root: javafx.scene.Parent = loader.load()
+    MyApp.setScene(root)
   }
 
 }
