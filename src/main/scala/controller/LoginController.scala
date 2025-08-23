@@ -117,7 +117,7 @@ class LoginController {
     val name = LoginName.getText.trim
     val phone = LoginPhone.getText.trim
 
-    LoginError.setVisible(false)
+    LoginError.setVisible(true)
 
     if (username.isEmpty || password.isEmpty || confirmPassword.isEmpty || name.isEmpty || phone.isEmpty) {
       LoginError.setText("Make sure all fields are filled")
