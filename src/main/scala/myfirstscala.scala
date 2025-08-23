@@ -247,16 +247,7 @@ object MyApp extends JFXApp3:
   def saveAccountsToFile(filePath: String): Unit = {
     val writer = new PrintWriter(new File(filePath))
     accounts.foreach { acc =>
-      val line = List(
-        acc.userID,
-        acc.getUsername,
-        acc.getPassword,
-        acc.name,
-        acc.phoneNo,
-        acc.accountType
-      ).mkString("|")
-
-      writer.println(line)
+      writer.println(acc.toDataLine)
     }
     writer.close()
   }

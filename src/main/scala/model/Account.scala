@@ -36,6 +36,15 @@ abstract class Account (
     root
   }
 
-  def getPassword: String = password
+  def toDataLine: String = {
+    List(
+      userID,
+      username,
+      password,
+      name,
+      phoneNo,
+      accountType
+    ).mkString("|")
+  }
 
 }
