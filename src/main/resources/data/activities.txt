@@ -5,3 +5,5 @@
 4|4|||-1|Red Crescent Food Drive|Kompleks 3C, Jalan SS 13/6|Subang Jaya|28/09/2025|10:00-14:00||
 5|1|||-1|Kajang Mosque Charity Food Distribution|Masjid Kajang, Jalan Cheras|Kajang|01/10/2025|11:00-13:00||
 6|4|Lim Yong Jay|018-9932 0876|0|448 Food Bank|36-G, Jalan USJ 1/1c, Usj 1, 47620|Subang Jaya|09/12/2025|16:30|Any food|Rejected
+7|0|Chong Wei Yat|013-665 9820|0|448 Food Bank|36-G, Jalan USJ 1/1c, Usj 1, 47620|Subang Jaya|31/12/2025|09:00||Approved
+8|0|||-1|Community Free Food Giveaway|Taman Jaya Park, Jalan Timur|Petaling Jaya|06/09/2025|17:30-19:00||
