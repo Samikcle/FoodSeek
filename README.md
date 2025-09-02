@@ -1,3 +1,5 @@
+# FoodSeek
+
 FoodSeek is an innovative mobile application created to address one of the world’s most pressing challenges—hunger. Aligned with the United Nations Sustainable Development Goal (SDG) 2: Zero Hunger, FoodSeek provides users with an accessible platform to locate essential food resources within their community. Through the app, users can quickly find nearby food banks, discover restaurants or stores offering food discounts, and stay updated on upcoming food giveaway events.
 
 The main purpose of FoodSeek is to bridge the gap between food availability and people in need. By connecting individuals with reliable sources of affordable or free food, the app not only helps reduce hunger but also contributes to minimizing food waste. Additionally, FoodSeek empowers communities by promoting inclusivity and ensuring that vulnerable groups, such as low-income families and students, are not left behind when it comes to accessing nutritious meals.
